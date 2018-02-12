@@ -5,3 +5,27 @@
 .brand-logo {
     font-family: "Raleway";
 }
+
+.meuPerfil {
+    margin: 3%;
+    padding: 1%;
+}
+
+#imgPerfil {
+    max-width: 100%!important;
+    border: solid 1px gray;
+    border-radius: 8px;
+}
+
+#namePerfil , #agePerfil , #statusCivil , #phonePerfil {
+    font-family: "Raleway";
+    font-size: 15pt;
+}
+
+textarea {
+    margin-top: 2%!important;
+    resize: none;
+    min-height: 200px!important;
+    border-radius: 7px;
+    text-align: justify;
+}
