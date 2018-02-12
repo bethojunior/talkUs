@@ -9,12 +9,16 @@ function loadPerfil(){
     document.getElementById("sobrePerfil").innerHTML = dados.sobre;
 
     new DadosController().getAllPosts();
+
+    setTimeout(function(){
+        new CrudUpdate().updateData();
+    }, 100);
+
 }
 
 function upSobre(){
     let sobre = document.getElementById("sobrePerfil").value;
     let id = dados.id;
-    
     new DadosController().updateSobre(id , sobre);
 }
 
