@@ -8,7 +8,6 @@ class DadosController{
             method: "POST",
             data: {"id" : id , "sobre" : sobre},
             success: function(result){
-                console.log(result);
                 function ok() {
                     let login = dados.login;
                     let pass = dados.pass;
@@ -46,7 +45,7 @@ class DadosController{
                     'OK'                 
                 );
             }, error: function(result){
-                console.log(result);
+                alert("Desculepe , houve um erro");
             }
         });
     }
@@ -72,7 +71,6 @@ class DadosController{
             method: "POST",
             success: function(result){
                 var dados = JSON.parse(result);
-                console.log(dados);
                 let txt = '';
                 for(let i in dados){
                     txt += 

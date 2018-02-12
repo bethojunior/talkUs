@@ -2,7 +2,6 @@
 document.getElementById("logar").onclick =  function(){
     var login = document.getElementById("login").value;
     var pass = document.getElementById("senha").value;
-    //let dialog = new IndeterminateProgressDialog("Aguarde");
     if(login && pass != ''){
         new UserController().login(login , pass);
     } else {

@@ -9,7 +9,7 @@ class CrudUpdate{
                 new DadosController().getAllPosts();
                 loadPerfil();
             },error: function(result){
-
+                
             }
         });
     }
