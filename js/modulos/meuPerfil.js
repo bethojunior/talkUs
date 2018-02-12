@@ -7,10 +7,20 @@ function loadPerfil(){
     document.getElementById("phonePerfil").href = "tel:" +dados.phone;
     document.getElementById("mailPerfil").innerHTML = dados.login;
     document.getElementById("sobrePerfil").innerHTML = dados.sobre;
+
+    new DadosController().getAllPosts();
 }
 
 function upSobre(){
     let sobre = document.getElementById("sobrePerfil").value;
     let id = dados.id;
+    
     new DadosController().updateSobre(id , sobre);
+}
+
+function sendPost(){
+    let login = dados.login;
+    let post = document.getElementById("myPost").value;
+
+    new DadosController().sendDataPost(login , post);
 }

@@ -1,3 +1,7 @@
+html{
+    background-color: #F1F1F1!important;
+}
+
 .nav-extended {
     background-color: #222431!important;
 }
@@ -29,3 +33,19 @@ textarea {
     border-radius: 7px;
     text-align: justify;
 }
+
+#myPost {
+    position: absolute;
+    border: 1px solid gray;
+    border-radius: 10px!important;
+    margin-top: 2%;
+    font-size: 18pt;
+    height: auto!important;
+    min-height: 10px!important;
+}
+
+.divPost {
+    background-color: blue;
+    color: wheat;
+}
+

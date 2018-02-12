@@ -38,8 +38,8 @@
             </div>
             <div class="nav-content">
                 <ul class="tabs tabs-transparent">
-                <li class="tab"><a class="active" href="#meuPerfil"><i class="material-icons">person_pin_circle</i></a></li>
-                <li class="tab"><a href="#explorar">  <i class="material-icons">explore</i></a></li>
+                <li class="tab"><a href="#meuPerfil"><i class="material-icons">person_pin_circle</i></a></li>
+                <li class="tab"><a href="#explorar" class="active"> <i class="material-icons">explore</i></a></li>
                 <li class="tab "><a href="#promo"><i class="material-icons">bookmark_border</i></a></li>
                 </ul>
             </div>
@@ -59,6 +59,13 @@
         </div>
 
         <div id="explorar" class="col s12">
+            <div class="row divSend">
+                <span class="col s1"></span>
+                <textarea onchange="sendPost()" class="col s10" type="text" id="myPost" placeholder="Estou .."></textarea>
+                <span class="col s1"></span>
+            </div>
+
+            <ul class="col s12" id="divAll"></ul>
 
         </div>
 

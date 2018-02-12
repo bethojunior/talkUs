@@ -1,4 +1,5 @@
 var dados = JSON.parse(localStorage.getItem("result"));
+
 class DadosController{
 
     updateSobre(id , sobre){
@@ -8,8 +9,6 @@ class DadosController{
             data: {"id" : id , "sobre" : sobre},
             success: function(result){
                 console.log(result);
-
-                //navigator.vibrate([300 , 300 , 200 , 100]);
                 function ok() {
                     let login = dados.login;
                     let pass = dados.pass;
@@ -51,5 +50,43 @@ class DadosController{
             }
         });
     }
+
+    sendDataPost(login , post){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/inserirPost.php",
+            method: "POST",
+            data: {"login" : login , "post" : post},
+            success: function(result){
+                if(result != false){
+                    location.reload();
+                }else {
+                    alert("a"); 
+                }
+            }
+        });
+    }
+
+    getAllPosts(){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/controller/getAllPosts.php",
+            method: "POST",
+            success: function(result){
+                var dados = JSON.parse(result);
+                console.log(dados);
+                let txt = '';
+                for(let i in dados){
+                    txt += 
+                    "<div class=''>"+
+                        "<span>"+dados[i].name+"</span><br>" + 
+                        "<span>" + dados[i].post +"</span>"+
+                    "</div>";
+                }
+                document.getElementById("divAll").innerHTML = txt;
+            },error: function(result){
+
+            }
+        });
+    }
+
 
 }
