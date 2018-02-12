@@ -36,12 +36,33 @@ class UserController{
             data: {"login" : login , "pass" : pass ,"name" : name , "phone" : phone , "data" : data},
             success: function(result){
                 if(result != false){
-                    alert("ok");
+                    navigator.vibrate([300 , 300 , 200 , 100]);
+                    function addOk() {
+                        window.location.href = "../index.html"; 
+                    }
+                    
+                    navigator.notification.alert(
+                        'Usurario adcionado com sucesso', 
+                        addOk,        
+                        ';D',                     
+                        'OK'                 
+                    );
                 } else {
-                    alert("erro ao add");
+                    navigator.vibrate([300 , 300 , 200 , 100]);
+                    function addError() {
+                        location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Tente novamente mais tarde', 
+                        addError,        
+                        'Erro ao se conectar ao banco de dados',                     
+                        'OK'                 
+                    );
                 }
             }, error: function(result){
-                alert("erro ao conectar ao banco de dados");
+                navigator.vibrate([300 , 300 , 200 , 100]);
+                alert("Erro ao conectar ao banco de dados");
             }
         });
     }

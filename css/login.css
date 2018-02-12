@@ -31,3 +31,13 @@ body {
     color: white!important;
     margin-top: 10%!important;
 }
+
+.divCadastro{
+    margin-top: 5%;
+}
+
+.divCadastro input {
+    font-size: 20pt!important;
+    color: white!important;
+    text-align: center!important;
+}
