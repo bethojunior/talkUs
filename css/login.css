@@ -1,0 +1,28 @@
+::placeholder {
+    text-align: center;
+    font-family: "Montserrat";
+}
+
+body {
+    background-color: #222431;
+}
+
+.divForm {
+    margin-top: 30%;
+    border: 1px solid #4EB8CE;
+    border-radius: 4px;
+}
+
+.divForm input {
+    font-size: 20pt!important;
+    color: whitesmoke;
+}
+
+#logar {
+    font-size: 20pt!important;
+    border-radius: 4px;
+    background-color: #4DB7CD!important;
+    color: #222431;
+    margin-top: 10%;
+    margin-bottom: 3%;
+}
