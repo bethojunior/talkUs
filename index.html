@@ -6,6 +6,7 @@
         <link rel="stylesheet" type="text/css" href="css/login.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Ubuntu" rel="stylesheet">
         <link href="Materialize/css/materialize.css" rel="stylesheet" />
+        <script src="js/libs/jquery.js"></script>
     </head>
     <body>
         
@@ -14,17 +15,20 @@
             <div class="divForm col s10">
                 <form>
                     <input type="text" id="login" placeholder="Login">
-                    <input type="text" id="senha"  placeholder="Senha" type="password">
+                    <input id="senha"  placeholder="Senha" type="password">
                 </form>
                 <div class="col s3"></div>
-                <button id="logar" class="btn col s6">Entrar</button>
+                <button id="logar" class="btn col s6">Logar</button>
             </div>
             
         </div>
 
         <script type="text/javascript" src="cordova.js"></script>
-        <script src="js/libs/jquery.js"></script>
         <script src="js/controllers/UserController.js"></script>
-        <script type="text/javascript" src="js/modulos/user.js"></script>
+        <script src="js/modulos/user.js"></script>
+        <script src="js/ultils/Dialog.js"></script>
+        <script src="js/ultils/DeterminateProgressDialog.js"></script>
+        <script src="js/ultils/IndeterminateProgressDialog.js"></script>
+        
     </body>
 </html>
