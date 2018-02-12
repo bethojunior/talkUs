@@ -16,6 +16,7 @@ body {
 .divForm input {
     font-size: 20pt!important;
     color: whitesmoke;
+    text-align: center;
 }
 
 #logar {

@@ -76,9 +76,9 @@ class DadosController{
                 let txt = '';
                 for(let i in dados){
                     txt += 
-                    "<div class=''>"+
-                        "<span>"+dados[i].name+"</span><br>" + 
-                        "<span>" + dados[i].post +"</span>"+
+                    "<div class='divD '>"+
+                        "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
+                        "<span class='postoForPost'>" + dados[i].post +"</span>"+
                     "</div>";
                 }
                 document.getElementById("divAll").innerHTML = txt;

@@ -4,10 +4,21 @@ html{
 
 .nav-extended {
     background-color: #222431!important;
+    position: fixed;
+    top: 0;
+}
+
+#sidenav-overlay {
+    position: relative!important;
+    background-color: rgba(0, 0, 0, 0)!important;
 }
 
 .brand-logo {
     font-family: "Raleway";
+}
+
+.latterNav {
+    margin-top: 30%;
 }
 
 .meuPerfil {
@@ -35,7 +46,6 @@ textarea {
 }
 
 #myPost {
-    position: absolute;
     border: 1px solid gray;
     border-radius: 10px!important;
     margin-top: 2%;
@@ -49,3 +59,19 @@ textarea {
     color: wheat;
 }
 
+#divAll {
+    margin-top: 2%!important;
+}
+
+.divD {
+    border-radius: 8px;
+    background-color: white;
+    margin: 1%;
+    padding: 1%;
+}
+
+.nameForPost {
+    font-family: "Montserrat";
+    font-size: 15pt;
+    text-align: center;
+}

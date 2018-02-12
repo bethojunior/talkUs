@@ -45,32 +45,35 @@
             </div>
         </nav>
 
-        <div id="meuPerfil" class="col s12">
-            <div class="row meuPerfil">
-                <img class="col s4" id="imgPerfil" src="../img/icon.png">
-                <div class="col s8">
-                    <span id="mailPerfil"></span><br>
-                    <span id="namePerfil"></span><br>
-                    <span id="agePerfil"></span><br>
-                    <a id="phonePerfil"></a>
+        <div class="latterNav">
+            <div id="meuPerfil" class="col s12">
+                    <div class="row meuPerfil">
+                        <img class="col s4" id="imgPerfil" src="../img/icon.png">
+                        <div class="col s8">
+                            <span id="mailPerfil"></span><br>
+                            <span id="namePerfil"></span><br>
+                            <span id="agePerfil"></span><br>
+                            <a id="phonePerfil"></a>
+                        </div>
+                        <textarea placeholder="Escreva sobre você" onchange="upSobre()" class="col s12 sobre" id="sobrePerfil"></textarea>
+                    </div>
                 </div>
-                <textarea placeholder="Escreva sobre você" onchange="upSobre()" class="col s12 sobre" id="sobrePerfil"></textarea>
-            </div>
-        </div>
-
-        <div id="explorar" class="col s12">
-            <div class="row divSend">
-                <span class="col s1"></span>
-                <textarea onchange="sendPost()" class="col s10" type="text" id="myPost" placeholder="Estou .."></textarea>
-                <span class="col s1"></span>
-            </div>
-
-            <ul class="col s12" id="divAll"></ul>
-
-        </div>
-
-        <div id="promo" class="col s12">
-
+        
+                <div id="explorar" class="col s12">
+        
+                    <div class="row divSend">
+                        <span class="col s1"></span>
+                        <textarea onchange="sendPost()" class="col s10" type="text" id="myPost" placeholder="Estou .."></textarea>
+                        <span class="col s1"></span>
+                    </div>
+                    <!--POSTS GLOBAIS -->
+                    <ul class="col s12" id="divAll"></ul>
+        
+                </div>
+        
+                <div id="promo" class="col s12">
+        
+                </div>
         </div>
 
 
