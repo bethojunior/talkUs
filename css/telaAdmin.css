@@ -63,7 +63,7 @@ textarea {
     margin-top: 2%!important;
 }
 
-.divD {
+.divDados {
     border-radius: 8px;
     background-color: white;
     margin: 1%;
@@ -74,4 +74,9 @@ textarea {
     font-family: "Montserrat";
     font-size: 15pt;
     text-align: center;
+}
+
+#moreInformationPost {
+    position: relative;
+    margin-left: 80%!important;
 }

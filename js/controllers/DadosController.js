@@ -74,12 +74,38 @@ class DadosController{
                 let txt = '';
                 for(let i in dados){
                     txt += 
-                    "<div class='divD '>"+
+                    "<div onclick='moreInformationPost("+ dados[i].id +")' class='divDados'>"+
+                        //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
                         "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
                         "<span class='postoForPost'>" + dados[i].post +"</span>"+
+                        
                     "</div>";
                 }
                 document.getElementById("divAll").innerHTML = txt;
+            },error: function(result){
+
+            }
+        });
+    }
+
+    getDataPost(id){
+        var idVoucher = id;
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/controller/getAllPosts.php",
+            method: "POST",
+            success: function(result){
+                var dados = JSON.parse(result);
+                var postSelect = "";
+                for(let i in dados){
+                    if(dados[i]['id'] == idVoucher){
+                        postSelect = dados[i];
+                        $('#modalOpt').modal('open');
+                        document.getElementById("namePostModal").innerHTML = postSelect.name;
+                        document.getElementById("postPostModal").innerHTML = postSelect.post;
+                        document.getElementById("dataPostModal").innerHTML = postSelect.data;
+                    }
+                }
+
             },error: function(result){
 
             }
