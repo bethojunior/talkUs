@@ -64,3 +64,8 @@ function addUser(){
             );
     }
 }
+
+function checkUser(){
+    let user = document.getElementById("loginCad").value;
+    new UserController().getUser(user);
+}

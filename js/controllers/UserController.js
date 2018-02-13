@@ -67,5 +67,35 @@ class UserController{
         });
     }
 
+    getUser(user){
+        let login = user;
+        //alert(login);
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/controller/checkLoginCad.php",
+            method: "GET",
+            data: {"login" : login},
+            success: function(result){
+                console.log(result);
+                let dados = JSON.parse(result);
+                let log = dados.login;
+                if(user == log){
+                    function userError() {
+                        //location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Erro ao cadastrar usuário', 
+                        userError,        
+                        'Usuário já existe',                     
+                        'OK'                 
+                    );
+                }else {
+                    console.log("Usuário Ok");
+                }
+            }
+        });
+    }
 
 }
+
+
