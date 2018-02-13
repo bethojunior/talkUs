@@ -59,7 +59,7 @@ textarea {
     color: wheat;
 }
 
-#divAll {
+#divAll , #divBestPost {
     margin-top: 2%!important;
 }
 
@@ -80,3 +80,4 @@ textarea {
     position: relative;
     margin-left: 80%!important;
 }
+

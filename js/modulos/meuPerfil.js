@@ -14,6 +14,8 @@ function loadPerfil(){
         new CrudUpdate().updateData();
     }, 100);
 
+    let idUser = dados.id;
+    new DadosController().getBestPost(idUser);
 }
 
 function upSobre(){
