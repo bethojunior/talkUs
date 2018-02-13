@@ -1,5 +1,8 @@
 var dados = JSON.parse(localStorage.getItem("result"));
 function loadPerfil(){
+    document.getElementById("postSaved").style.display = "none";
+    document.getElementById("savePost").style.display = "none";
+    
     var age = dados.dataNascimento;
     document.getElementById("namePerfil").innerHTML = dados.name;
     document.getElementById("agePerfil").innerHTML = age;

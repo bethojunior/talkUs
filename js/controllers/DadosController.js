@@ -108,11 +108,36 @@ class DadosController{
                         document.getElementById("namePostModal").innerHTML = postSelect.name;
                         document.getElementById("postPostModal").innerHTML = postSelect.post;
                         document.getElementById("dataPostModal").innerHTML = postSelect.data;
+
+                        //MUDA ICONE DE ADD OU NÃO POST AOS FAVORITOS
+                        localStorage.setItem("postoId" , postId);
+                        //checkPost();
                     }
+                    let idPost = postSelect.id;
+                    //checkPost(idPost);
+                    
                 }
 
             },error: function(result){
 
+            }
+        });
+    }
+
+    checkPost(idPost){
+        var idPost = localStorage.getItem(postId);
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/controller/checkPost.php",
+            method: "POST",
+            data: {"idPost" : idPost , "idUser" : idUser},
+            success: function(result){
+                if(result != false){
+                    document.getElementById("postSaved").style.display = "block";
+                    $('#modalOpt').modal('open');
+                } else{
+                    document.getElementById("savePost").style.display = "block";
+                    $('#modalOpt').modal('open');
+                }
             }
         });
     }
