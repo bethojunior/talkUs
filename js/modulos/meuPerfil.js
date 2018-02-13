@@ -1,8 +1,8 @@
 var dados = JSON.parse(localStorage.getItem("result"));
 function loadPerfil(){
+
     document.getElementById("postSaved").style.display = "none";
     document.getElementById("savePost").style.display = "none";
-    
     var age = dados.dataNascimento;
     document.getElementById("namePerfil").innerHTML = dados.name;
     document.getElementById("agePerfil").innerHTML = age;
@@ -49,4 +49,8 @@ if(document.getElementById("savePost") != null){
         let idPost = document.getElementById("idPost").value;
         new DadosController().postSave(idPost);
     };
+}
+
+function getOutApp(){
+    localStorage.clear();
 }

@@ -1,3 +1,9 @@
+var dados = JSON.parse(localStorage.getItem("result"));
+function checkLocalStoraged(){
+    if(dados != null || dados != ""){
+        window.location.href = "views/telaAdm.html"; 
+    }
+}
 
 document.getElementById("logar").onclick =  function(){
     var login = document.getElementById("login").value;
