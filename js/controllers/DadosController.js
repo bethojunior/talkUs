@@ -164,5 +164,41 @@ class DadosController{
         });
     }
 
+    postSave(idPost){
+        let idUser = dados.id;
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/insertBestPosts.php",
+            method: "POST",
+            data:{"idPost" : idPost , "idUser" : idUser},
+            success: function(result){
+                if(result != false){
+                    console.log("Adcionado aos favoritos com sucesso");
+                } else {
+                    function erroAdd() {
+                        location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Erro', 
+                        erroAdd,        
+                        'Conexão a internet instavel',                     
+                        'OK'                 
+                    );
+                }
+            }, error: function(result){
+                function erroAdd() {
+                    location.reload();
+                }
+                
+                navigator.notification.alert(
+                    'Erro', 
+                    erroAdd,        
+                    'Conexão a internet instavel',                     
+                    'OK'                 
+                );
+            }
+        });
+    }
+
 
 }

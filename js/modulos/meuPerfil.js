@@ -36,4 +36,12 @@ function send(e){
 
         new DadosController().sendDataPost(login , post);
     }
-}    
+
+}
+
+if(document.getElementById("savePost") != null){
+    document.getElementById("savePost").onclick = function(){
+        let idPost = document.getElementById("idPost").value;
+        new DadosController().postSave(idPost);
+    };
+}
