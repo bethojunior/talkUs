@@ -45,7 +45,7 @@ class DadosController{
                     'OK'                 
                 );
             }, error: function(result){
-                alert("Desculepe , houve um erro");
+                alert("Desculpe , houve um erro");
             }
         });
     }
@@ -57,11 +57,23 @@ class DadosController{
             method: "POST",
             data: {"login" : login , "post" : post , "idUser" : idUser},
             success: function(result){
-                if(result != false){
+                if(result != "false"){
                     location.reload();
                 }else {
-                    alert("a"); 
+                    navigator.vibrate([300 , 300 , 200 , 100]);
+                    function erroPost() {
+                        location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Erro ao enviar post.', 
+                        erroPost,        
+                        'Conexão a internet instavel',                     
+                        'OK'                 
+                    );
                 }
+            }, error: function(result){
+                console.log("erro Ajax");
             }
         });
     }
