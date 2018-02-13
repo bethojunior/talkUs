@@ -6,7 +6,7 @@
     $post = $_POST['post'];
     $data = date("Y/m/d");
 
-    $sql = "INSERT INTO postagens (name , post , data ) values ('$login' , '$post' , '$data')";
+    $sql = "INSERT INTO postagens (name , post , data , login ) values ('$login' , '$post' , '$data' , '$login')";
     $exc = mysqli_query($conexao , $sql);
 
     if($exc){

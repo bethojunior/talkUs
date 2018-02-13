@@ -51,10 +51,11 @@ class DadosController{
     }
 
     sendDataPost(login , post){
+        let idUser = dados.id;
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/dao/inserirPost.php",
             method: "POST",
-            data: {"login" : login , "post" : post},
+            data: {"login" : login , "post" : post , "idUser" : idUser},
             success: function(result){
                 if(result != false){
                     location.reload();
@@ -73,8 +74,10 @@ class DadosController{
                 var dados = JSON.parse(result);
                 let txt = '';
                 for(let i in dados){
+                    let idPost = dados[i].id;
+                    let idUser = dados[i].idUser;
                     txt += 
-                    "<div onclick='moreInformationPost("+ dados[i].id +")' class='divDados'>"+
+                    "<div onclick='moreInformationPost(" + idPost + " , " + idUser +")' class='divDados'>"+
                         //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
                         "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
                         "<span class='postoForPost'>" + dados[i].post +"</span>"+
@@ -100,6 +103,8 @@ class DadosController{
                     if(dados[i]['id'] == idVoucher){
                         postSelect = dados[i];
                         $('#modalOpt').modal('open');
+                        document.getElementById("idPost").value = postSelect.id;
+                        document.getElementById("loginPost").value = postSelect.login;
                         document.getElementById("namePostModal").innerHTML = postSelect.name;
                         document.getElementById("postPostModal").innerHTML = postSelect.post;
                         document.getElementById("dataPostModal").innerHTML = postSelect.data;
@@ -108,6 +113,53 @@ class DadosController{
 
             },error: function(result){
 
+            }
+        });
+    }
+
+    deleteDataPost(id){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/deletePost.php",
+            method: "POST",
+            data: {"id" : id},
+            success: function(result){
+                if(result != false){
+
+                    function allRight() {
+                        location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Apagado com sucesso', 
+                        allRight,        
+                        ';D',                     
+                        'OK'                 
+                    );
+                } else {
+                    navigator.vibrate([300 , 300 , 200 , 100]);
+                    function erroDelet() {
+                        location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Erro ao apagar post', 
+                        erroDelet,        
+                        'Conexão a internet instavel',                     
+                        'OK'                 
+                    );
+                }
+            },error: function(result){
+                navigator.vibrate([300 , 300 , 200 , 100]);
+                function erroDelet1() {
+                    location.reload();
+                }
+                
+                navigator.notification.alert(
+                    'Erro ao apagar post', 
+                    erroDelet1,        
+                    'Conexão a internet instavel',                     
+                    'OK'                 
+                );
             }
         });
     }

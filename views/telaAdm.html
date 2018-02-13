@@ -58,7 +58,7 @@
                             <span id="agePerfil"></span><br>
                             <a id="phonePerfil"></a>
                         </div>
-                        <textarea placeholder="Escreva sobre você" onchange="upSobre()" class="col s12 sobre" id="sobrePerfil"></textarea>
+                        <textarea placeholder="Escreva sobre você" onchange="upSobre()"  class="col s12 sobre" id="sobrePerfil"></textarea>
                     </div>
                 </div>
         
@@ -66,7 +66,7 @@
         
                     <div class="row divSend">
                         <span class="col s1"></span>
-                        <textarea onchange="sendPost()" class="col s10" type="text" id="myPost" placeholder="Talk .."></textarea>
+                        <textarea onchange="sendPost()" onkeypress="return send(event)" class="col s10" type="text" id="myPost" placeholder="Talk .."></textarea>
                         <span class="col s1"></span>
                     </div>
                     <!--POSTS GLOBAIS -->
@@ -83,9 +83,15 @@
 
 <div id="modalOpt" class="modal">
     <div class="modal-content">
+        <label id="idPost"></label>
+        <label id="loginPost"></label>
         <h4 id="namePostModal"></h4>
         <h6 id="postPostModal"></h6>
         <h6 id="dataPostModal"></h6>
+    </div>
+
+    <div id="optionModalPost" class="modal-footer">
+        <button id="deletePost" onclick="deletePost()" class="btn">Apagar</button>
     </div>
 </div>
 

@@ -28,3 +28,12 @@ function sendPost(){
 
     new DadosController().sendDataPost(login , post);
 }
+
+function send(e){
+    if(e.keyCode === 13){
+        let login = dados.login;
+        let post = document.getElementById("myPost").value;
+
+        new DadosController().sendDataPost(login , post);
+    }
+}    
