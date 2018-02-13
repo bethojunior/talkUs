@@ -2,7 +2,7 @@ var dados = JSON.parse(localStorage.getItem("result"));
 function loadPerfil(){
     let checkId = dados.id;
     //alert(checkId);
-    if(checkId != "0" ){
+    if(checkId != null ){
         document.getElementById("postSaved").style.display = "none";
         document.getElementById("savePost").style.display = "none";
         var age = dados.dataNascimento;
@@ -22,7 +22,7 @@ function loadPerfil(){
         let idUser = dados.id;
         new DadosController().getBestPost(idUser);
     }else {
-        getOutApp();
+        //window.location.href = "../index.html";
     }
 
 
