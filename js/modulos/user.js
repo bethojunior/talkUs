@@ -1,6 +1,7 @@
 var dados = JSON.parse(localStorage.getItem("result"));
 function checkLocalStoraged(){
-    if(dados != null || dados != ""){
+    let id = dados.id;
+    if(id != null || id != ""){
         window.location.href = "views/telaAdm.html"; 
     }
 }

@@ -1,24 +1,31 @@
 var dados = JSON.parse(localStorage.getItem("result"));
 function loadPerfil(){
+    let checkId = dados.id;
+    //alert(checkId);
+    if(checkId != "0" ){
+        document.getElementById("postSaved").style.display = "none";
+        document.getElementById("savePost").style.display = "none";
+        var age = dados.dataNascimento;
+        document.getElementById("namePerfil").innerHTML = dados.name;
+        document.getElementById("agePerfil").innerHTML = age;
+        document.getElementById("phonePerfil").innerHTML = dados.phone;
+        document.getElementById("phonePerfil").href = "tel:" +dados.phone;
+        document.getElementById("mailPerfil").innerHTML = dados.login;
+        document.getElementById("sobrePerfil").innerHTML = dados.sobre;
+    
+        new DadosController().getAllPosts();
+    
+        setTimeout(function(){
+            new CrudUpdate().updateData();
+        }, 100);
+    
+        let idUser = dados.id;
+        new DadosController().getBestPost(idUser);
+    }else {
+        getOutApp();
+    }
 
-    document.getElementById("postSaved").style.display = "none";
-    document.getElementById("savePost").style.display = "none";
-    var age = dados.dataNascimento;
-    document.getElementById("namePerfil").innerHTML = dados.name;
-    document.getElementById("agePerfil").innerHTML = age;
-    document.getElementById("phonePerfil").innerHTML = dados.phone;
-    document.getElementById("phonePerfil").href = "tel:" +dados.phone;
-    document.getElementById("mailPerfil").innerHTML = dados.login;
-    document.getElementById("sobrePerfil").innerHTML = dados.sobre;
 
-    new DadosController().getAllPosts();
-
-    setTimeout(function(){
-        new CrudUpdate().updateData();
-    }, 100);
-
-    let idUser = dados.id;
-    new DadosController().getBestPost(idUser);
 }
 
 function upSobre(){
@@ -53,4 +60,5 @@ if(document.getElementById("savePost") != null){
 
 function getOutApp(){
     localStorage.clear();
+    window.location.href = "../index.html";
 }
