@@ -9,10 +9,13 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Ubuntu" rel="stylesheet">
         <link href="../Materialize/css/materialize.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        
+        <link href="../css/dropzone/dropzone.css" rel="stylesheet" />
+        <link href="../css/dropzone/basic.css" rel="stylesheet" />
+
         <script src="../js/libs/jquery.js"></script>
         <script src="../js/crud/Crud.js"></script>
         <script src="../cordova.js"></script>
+        <script src="../js/modulos/camera.js"></script>
         <script src="../js/controllers/UserController.js"></script>
         <script src="../js/modulos/user.js"></script>
         <script src="../js/controllers/DadosController.js"></script>
@@ -21,6 +24,7 @@
         <script src="../js/ultils/DeterminateProgressDialog.js"></script>
         <script src="../js/ultils/IndeterminateProgressDialog.js"></script>
         <script src="../js/modulos/geolocation.js"></script>
+        <script src="../js/libs/dropzone/dropzone.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuKKTb__rcXpv0DgoOrEi7gFuGzUE0bQ0"></script>
     </head>
 
@@ -70,7 +74,17 @@
                 <div id="explorar" class="col s12">
                     <div class="row divSend">
                         <span class="col s1"></span>
-                        <textarea onchange="sendPost()" onkeypress="return send(event)" class="col s10" type="text" id="myPost" placeholder="Talk .."></textarea>
+                        <!-- <textarea onchange="sendPost()" onkeypress="return send(event)" class="col s10" type="text" id="myPost" placeholder="Talk .."></textarea> -->
+                        <div class="fixed-action-btn horizontal">
+                            <a class="btn-floating btn-large red">
+                                <i class="large material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a onclick="app.capturePhoto()" class="btn-floating green"><i class="material-icons">camera</i></a></li>
+                                <li><a href="#modalSendPost" class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
+                                <li><a href="#modalSendFile" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+                        </div>
                         <span class="col s1"></span>
                     </div>
                     <!--Sshow posts -->
@@ -112,12 +126,53 @@
     </div>
 </div>
 
+<!--- MODAL SEND POST -->
+  <!-- Modal Structure -->
+<div id="modalSendPost" class="modal bottom-sheet">
+    <div class="modal-content">
+            <!-- onkeypress="return send(event)" -->
+        <textarea  class="col s10" type="text" id="myPost" placeholder="Talk .."></textarea>
+    </div>
+    <div class="modal-footer">
+      <a onclick="sendPost()" href="#!" class="modal-action modal-close waves-effect waves-green btn">Enviar</a>
+    </div>
+</div>
+
+<!-- MODAL SEND FILE -->
+<div id="modalSendFile" class="modal bottom-sheet">
+    <div class="modal-content">
+        <form id="formFile" action="#">
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>File</span>
+                <input name="imagem" type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+            <input id="idUserPost" name="idUser"></label>
+            <input id="nameUserPost" name="login"></label>
+            <input placeholder="Titulo" name="post"> 
+          </form>
+    </div>
+    <div class="modal-footer">
+        <a onclick="sendFile()" href="#!" class="col s12 modal-action modal-close waves-effect waves-green ">Enviar</a>
+    </div>
+</div>
+          
 
 
         <script src="../Materialize/js/materialize.js"></script>
         <script src="../js/modulos/meuPerfil.js"></script>
         <script>
             $(".button-collapse").sideNav();
+        </script>
+        <script>
+        $(document).ready(function(){
+        // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });
         </script>
     </body>
 

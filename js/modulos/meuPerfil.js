@@ -12,6 +12,8 @@ function loadPerfil(){
         if(imgPerfil === ""){
             src = "../img/users/default.png";
         }
+        document.getElementById("idUserPost").value = dados.id;
+        document.getElementById("nameUserPost").value = dados.login;
         document.getElementById("imgPerfil").src = src;
         document.getElementById("namePerfil").innerHTML = dados.login;
         document.getElementById("agePerfil").innerHTML = age;
@@ -163,6 +165,19 @@ if(document.getElementById("savePost") != null){
         new DadosController().postSave(idPost);
     };
 }
+
+
+//SEND FILE 
+
+function sendFile(){
+    var formFile = document.getElementById("formFile");
+    var formData = new FormData(formFile);
+    new DadosController().sendPostFile(formData , callback);
+    function callback(result){
+        alert("ok");
+    }
+}
+
 
 //LOGOUT
 function getOutApp(){
