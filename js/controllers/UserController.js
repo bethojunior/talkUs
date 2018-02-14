@@ -23,6 +23,7 @@ class UserController{
             }
         })
     }
+    
 
     login(login , pass , callback ){
         //let dialog = new IndeterminateProgressDialog("Aguarde");
@@ -35,8 +36,6 @@ class UserController{
                 let dados = JSON.parse(result);
                 if(dados != null){
                     localStorage.setItem("result" , result);
-                    //localStorage.setItem("dadosStatus" , result);
-                    //insertStatus();
                     callback();
                 } else {
                     navigator.vibrate([300 , 300 , 200 , 100]);

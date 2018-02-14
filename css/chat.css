@@ -26,7 +26,7 @@
     border-radius: 120px 120px 0px 0px;
     padding: 1px;
     border-radius: 10px;
-    background-color: orange;
+    background-color: black;
 }
 
 .nameUserChat {
@@ -39,4 +39,16 @@
     font-size: 13pt;
     font-family: "Montserrat";
     
+}
+
+.status {
+    color: #4CAF50;
+}
+
+.offline {
+    color: #D81B07!important;
+}
+
+.online {
+    color: #4CAF50!important;
 }

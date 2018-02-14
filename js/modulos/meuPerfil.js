@@ -29,7 +29,6 @@ function loadPerfil(){
 function sendStatusUser(){
     let idUser = dados.id;
     new DadosController().insertStatusUser(idUser);
-    new DadosController().changeColorStatusChat();
 }
 
 function disableStatusUser(){
@@ -74,7 +73,7 @@ function getBestPostsForUser(){
 //CRUD ATUALIZA POSTS A CADA 1 SEGUNDO
 function checkPost(){
     setTimeout(function(){
-        new CrudUpdate().updateData();
+        new Crud().updateData();
     }, 1);
 }
 
@@ -84,14 +83,26 @@ function getAllUsers(){
     function showUser(users){
         var showDataUser = "";
         for(let i in users){
+            let id = users[i].id;
             let img = users[i].imgUser;
             var path = "";
+
             if(img === ""){
                 path = "../img/users/default.png";
+            } else {
+
+            }
+            let status = users[i].status;
+            let line = "";
+
+            if(status === "online"){
+                line = "online";
+            }else {
+                line = "offline";
             }
             showDataUser += 
             "<div id='startChat' class='row divUserChat'>"+
-                "<div class='col s12' id='statusUser' ></div>"+
+                "<div class='col s12 " + line + " '>" + users[i].status +"</div>"+
                 "<div class='col s2 divPictureUser'><img id='pictureUser' src='" + path + "'></div>"+
                 "<div class='col s10'><span class='nameUserChat col s12'>" + users[i].name + "</span></div>"+
                 "<div class='col s2'></div>"+
@@ -100,6 +111,8 @@ function getAllUsers(){
         }
         document.getElementById("usersChat").innerHTML = showDataUser;
     };
+
+
 }
 
 //CHECA STATUS DO POST (SALVO OU NÃO )

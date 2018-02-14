@@ -3,10 +3,9 @@
     require "../service/conexao.php";
 
     $idUser = $_POST['idUser'];
-    $hora = date("H:i:s");
     $status = $_POST['status'];
     
-    $sql = "INSERT INTO statusUser (idUser , hora , status ) values ('$idUser' , '$hora' , '$status')";
+    $sql = "UPDATE users SET status = '$status' WHERE id = '$idUser' ";
     $exc = mysqli_query($conexao , $sql);
 
     if($exc){
