@@ -1,11 +1,15 @@
 var dados = JSON.parse(localStorage.getItem("result"));
 function loadPerfil(){
+    getBestPostsForUser();
+    getPosts();
+    checkPost();
+    getAllUsers();
     let checkId = dados.id;
     if(checkId != null ){
         var age = dados.dataNascimento;
         let imgPerfil = dados.imgUser;
         let src = '';
-        if(imgPerfil == null){
+        if(imgPerfil === ""){
             src = "../img/users/default.png";
         }
         document.getElementById("imgPerfil").src = src;
@@ -15,17 +19,38 @@ function loadPerfil(){
         document.getElementById("phonePerfil").href = "tel:" +dados.phone;
         document.getElementById("mailPerfil").innerHTML = dados.login;
         document.getElementById("sobrePerfil").innerHTML = dados.sobre;
-        
-        let idUser = dados.id;
-        new DadosController().getAllPosts();
-        new DadosController().getBestPost(idUser);
-        checkPost();
-        getAllUsers();
+
     }else {
         window.location.href = "../index.html";
     }
 }
 
+//PEGA TODOS OS POSTS
+function getPosts(){
+    new DadosController().getAllPosts();
+}
+
+//PEGA POSTS SALVOS
+function getBestPostsForUser(){
+    let idUser = dados.id;
+    new DadosController().getBestPost(idUser , callback);
+    function callback(result){
+        let best = JSON.parse(result);
+        let txt = '';
+        for(let i in best){
+            let idPost = best[i].id;
+            let idUser = best[i].idUser;
+            txt += 
+            "<div class='divDados'>"+
+                "<i class='material-icons right'>bookmark_border</i>" +
+                "<span class='nameForPost'>"+best[i].name+"</span><br>" + 
+                "<span class='postoForPost'>" + best[i].post +"</span>"+
+            "</div>";
+        }
+        document.getElementById("divBestPost").innerHTML = txt;
+    }
+}
+        
 
 //CRUD ATUALIZA POSTS A CADA 1 SEGUNDO
 function checkPost(){

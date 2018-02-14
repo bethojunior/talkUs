@@ -40,9 +40,11 @@ html{
 textarea {
     margin-top: 2%!important;
     resize: none;
-    min-height: 200px!important;
+    min-height: 75px!important;
     border-radius: 7px;
     text-align: justify;
+    padding: 1%!important;
+    margin: 2%;
 }
 
 #myPost {

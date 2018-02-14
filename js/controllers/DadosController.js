@@ -220,26 +220,15 @@ class DadosController{
         });
     }
 
-    getBestPost(idUser){
+    getBestPost(idUser , callback){
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/controller/getBestPost.php",
             method: "POST",
             data: {"idUser" : idUser},
             success: function(result){
-                let best = JSON.parse(result);
-                let txt = '';
-                for(let i in best){
-                    let idPost = best[i].id;
-                    let idUser = best[i].idUser;
-                    txt += 
-                    "<div' class='divDados'>"+
-                        "<span class='nameForPost'>"+best[i].name+"</span><br>" + 
-                        "<span class='postoForPost'>" + best[i].post +"</span>"+
-                    "</div>";
-                }
-                document.getElementById("divBestPost").innerHTML = txt;
+                callback(result);
             },error: function(result){
-
+                console.log("Erro bestPost");
             }
         });
     }
