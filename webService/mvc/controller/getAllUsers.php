@@ -2,7 +2,7 @@
 
     require "../service/conexao.php";
     
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM users ORDER BY id DESC";
     $dados = mysqli_query($conexao , $sql);
     $array = [];
     while($result = mysqli_fetch_object($dados)){

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 10.129.76.12
--- Tempo de geração: 13/02/2018 às 23:17
+-- Tempo de geração: 14/02/2018 às 05:23
 -- Versão do servidor: 5.6.26-log
 -- Versão do PHP: 5.6.12
 
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `bestPosts` (
 `id` int(11) NOT NULL,
   `idPost` int(11) NOT NULL,
   `idUser` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=33 ;
 
 --
 -- Fazendo dump de dados para tabela `bestPosts`
@@ -47,7 +47,28 @@ INSERT INTO `bestPosts` (`id`, `idPost`, `idUser`) VALUES
 (8, 58, 38),
 (9, 53, 38),
 (10, 60, 38),
-(11, 60, 38);
+(11, 60, 38),
+(12, 85, 38),
+(13, 80, 38),
+(14, 80, 38),
+(15, 87, 38),
+(16, 85, 38),
+(17, 87, 38),
+(18, 88, 20),
+(19, 54, 20),
+(20, 74, 20),
+(21, 58, 20),
+(22, 65, 20),
+(23, 88, 20),
+(24, 93, 20),
+(25, 58, 20),
+(26, 53, 20),
+(27, 52, 20),
+(28, 62, 20),
+(29, 94, 20),
+(30, 101, 35),
+(31, 101, 20),
+(32, 99, 20);
 
 -- --------------------------------------------------------
 
@@ -246,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `postagens` (
   `data` varchar(50) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
   `idUser` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
 
 --
 -- Fazendo dump de dados para tabela `postagens`
@@ -281,7 +302,59 @@ INSERT INTO `postagens` (`id`, `name`, `post`, `data`, `login`, `idUser`) VALUES
 (83, 'hellen', 'dklsflksd', '2018-02-13', 'hellen', 20),
 (84, 'Jr', 'Ok', '2018-02-13', 'Jr', 38),
 (85, 'hellen', 'sdfds\n', '2018-02-13 23:16:22', 'hellen', 20),
-(86, 'hellen', 'sds', '23:16:58', 'hellen', 20);
+(86, 'hellen', 'sds', '23:16:58', 'hellen', 20),
+(87, 'Jr', 'Teste', '23:24:38', 'Jr', 38),
+(88, 'hellen', 'Gggg', '01:41:55', 'hellen', 20),
+(89, 'hellen', 'Nwnsnsns', '01:52:00', 'hellen', 20),
+(90, 'hellen', 'Yyy', '01:55:42', 'hellen', 20),
+(91, 'hellen', 'Juj', '01:55:50', 'hellen', 20),
+(92, 'hellen', 'Oi', '01:55:57', 'hellen', 20),
+(93, 'hellen', 'Ok', '01:56:01', 'hellen', 20),
+(94, 'hellen', 'Jjjj', '02:14:21', 'hellen', 20),
+(95, 'hellen', 'sdfdsds', '04:14:37', 'hellen', 20),
+(96, 'Jr', 'M', '04:14:54', 'Jr', 38),
+(97, 'hellen', 'sssd', '04:15:12', 'hellen', 20),
+(98, 'hellen', 'jbdfjgdfgd', '04:15:16', 'hellen', 20),
+(99, 'Jr', '55ttttt', '04:15:20', 'Jr', 38),
+(100, 'Jr', 'Ttttt', '04:15:46', 'Jr', 38),
+(101, 'hellen', 'dgdf', '04:16:36', 'hellen', 20);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `statusUser`
+--
+
+CREATE TABLE IF NOT EXISTS `statusUser` (
+`id` int(11) NOT NULL,
+  `hora` varchar(20) NOT NULL,
+  `idUser` varchar(11) NOT NULL,
+  `status` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=330 ;
+
+--
+-- Fazendo dump de dados para tabela `statusUser`
+--
+
+INSERT INTO `statusUser` (`id`, `hora`, `idUser`, `status`) VALUES
+(312, '04:52:00', '20', 'offline'),
+(313, '04:52:00', '20', 'offline'),
+(314, '04:52:00', '20', 'offline'),
+(315, '04:52:00', '20', 'offline'),
+(316, '04:52:00', '20', 'offline'),
+(317, '04:52:00', '20', 'offline'),
+(318, '04:52:00', '20', 'offline'),
+(319, '04:52:00', '20', 'offline'),
+(320, '04:52:00', '20', 'offline'),
+(321, '04:52:00', '20', 'offline'),
+(322, '04:52:00', '20', 'offline'),
+(323, '04:51:29', '35', 'offline'),
+(324, '04:52:00', '20', 'offline'),
+(325, '04:52:00', '20', 'offline'),
+(326, '04:52:00', '20', 'offline'),
+(327, '04:52:00', '20', 'offline'),
+(328, '04:52:00', '20', 'offline'),
+(329, '04:52:00', '20', 'offline');
 
 -- --------------------------------------------------------
 
@@ -295,19 +368,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `pass` varchar(20) NOT NULL,
   `name` varchar(30) NOT NULL,
   `phone` varchar(11) DEFAULT NULL,
-  `dataNascimento` varchar(10) NOT NULL,
-  `sobre` text NOT NULL
+  `dataNascimento` varchar(11) NOT NULL,
+  `sobre` text NOT NULL,
+  `imgUser` varchar(80) NOT NULL,
+  `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
 
 --
 -- Fazendo dump de dados para tabela `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `pass`, `name`, `phone`, `dataNascimento`, `sobre`) VALUES
-(20, 'hellen', 'hellen', 'Hellen lais', '85991394539', '', 'Changedf'),
-(35, 'hemile', 'hemile', 'Princesa Hemile', '85991394539', '', ''),
-(38, 'Jr', '1', 'Betho', '85991394539', '1997-05-19', 'Oi, eu sou o goku\n'),
-(39, 'Rany', 'ranyeli123', 'Ranyeli', '85992015126', '1997-02-15', '');
+INSERT INTO `users` (`id`, `login`, `pass`, `name`, `phone`, `dataNascimento`, `sobre`, `imgUser`, `status`) VALUES
+(20, 'hellen', 'hellen', 'Hellen lais', '85991394539', '19-07-2010', '', '', 'offline'),
+(35, 'hemile', 'hemile', 'Princesa Hemile', '85991394539', '19-09-2011', '', '', 'online'),
+(38, 'Jr', '1', 'Betho', '85991394539', '19-05-1997', '', '', 'offline'),
+(39, 'Rany', 'ranyeli123', 'Ranyeli', '85992015126', '15-02-1998', '', '', 'offline');
 
 -- --------------------------------------------------------
 
@@ -421,6 +496,12 @@ ALTER TABLE `postagens`
  ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `statusUser`
+--
+ALTER TABLE `statusUser`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `users`
 --
 ALTER TABLE `users`
@@ -446,7 +527,7 @@ ALTER TABLE `video`
 -- AUTO_INCREMENT de tabela `bestPosts`
 --
 ALTER TABLE `bestPosts`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT de tabela `cadastroUser`
 --
@@ -486,7 +567,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 -- AUTO_INCREMENT de tabela `postagens`
 --
 ALTER TABLE `postagens`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=102;
+--
+-- AUTO_INCREMENT de tabela `statusUser`
+--
+ALTER TABLE `statusUser`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=330;
 --
 -- AUTO_INCREMENT de tabela `users`
 --

@@ -6,7 +6,7 @@
     $status = $_POST['status'];
     $hora = date("H:i:s");
 
-    $sql = "UPDATE statusUser SET status = '$status' , hora = '$hora' WHERE idUser = '$idUser' ";
+    $sql = "UPDATE users SET status = '$status'  WHERE id = '$idUser' ";
     $exc = mysqli_query($conexao , $sql);
 
     if($exc){

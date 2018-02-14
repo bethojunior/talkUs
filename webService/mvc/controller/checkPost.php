@@ -2,7 +2,7 @@
 
     require "../service/conexao.php";
     
-    $idUser = $_POST['iduser'];
+    $idUser = $_POST['idUser'];
     $idPost = $_POST['idPost'];
 
     $sql = "SELECT * FROM bestPosts INNER JOIN postagens on bestPosts.idPost = postagens.id WHERE bestPosts.idUser = '$idUser' and bestPosts.idPost = '$idPost'";
@@ -13,4 +13,3 @@
     } else {
         echo false;
     }
-    
