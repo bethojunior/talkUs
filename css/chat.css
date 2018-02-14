@@ -45,10 +45,14 @@
     color: #4CAF50;
 }
 
-.offline {
-    color: #D81B07!important;
-}
-
 .online {
     color: #4CAF50!important;
+}
+
+.ausente {
+    color: #E2C418!important;
+}
+
+.offline {
+    color: #D81B07!important;
 }

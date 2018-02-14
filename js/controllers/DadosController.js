@@ -274,7 +274,7 @@ class DadosController{
     }
 
     changeStatusUser(idUser , callback){
-        let status = "offline";
+        let status = "ausente";
         $.ajax({
             url:"http://betho3.000webhostapp.com/mvc/dao/updateStatusUser.php",
             method: "POST",
@@ -313,6 +313,20 @@ class DadosController{
             }
         });
         
+    }
+
+    statusOffline(idUser , callback){
+        let status = "offline";
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/dao/updateStatusUser.php",
+            method: "POST",
+            data:{"idUser" : idUser , "status" : status},
+            success: function(result){
+                callback(result);
+            },error: function(result){
+                console.log("Erro ajax change status user");
+            }
+        });
     }
 
 

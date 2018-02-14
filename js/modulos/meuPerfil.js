@@ -32,15 +32,15 @@ function sendStatusUser(){
     let idUser = dados.id;
     new DadosController().insertStatusUser(idUser);
 }
-
+//STATUS AUSENTE
 function disableStatusUser(){
     let idUser = dados.id;
     new DadosController().changeStatusUser(idUser , callback);
     function callback(result){
         if(result != false){
-            console.log("Status Offline");
+            console.log("AUSENTE ");
         }else {
-            console.log("ERROR STATUS USER");
+            console.log("ERROR STATUS USER / AUSENTE");
         }
     };
 }
@@ -101,8 +101,10 @@ function getAllUsers(){
 
             if(status === "online"){
                 line = "online";
+            }else if(status === "ausente"){
+                line = "ausente";
             }else {
-                line = "offline";
+                line = "offline"
             }
             showDataUser += 
             "<div id='startChat' class='row divUserChat'>"+
@@ -180,9 +182,17 @@ function sendFile(){
 }
 
 
-//LOGOUT
+//LOGOUT // STATUS OFF
 function getOutApp(){
-    localStorage.clear();
-    disableStatusUser();
+    let idUser = dados.id;
+    new DadosController().statusOffline(idUser , callback);
+    function callback(result){
+        if(result != false){
+            cosole.log("OFF");
+        }else {
+            console.log("Erro");
+        }
+    }
     window.location.href = "../index.html";
+    localStorage.clear();
 }
