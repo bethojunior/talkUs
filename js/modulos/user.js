@@ -10,7 +10,11 @@ document.getElementById("logar").onclick =  function(){
     var login = document.getElementById("login").value;
     var pass = document.getElementById("senha").value;
     if(login && pass != ''){
-        new UserController().login(login , pass);
+        new UserController().login(login , pass ,callback);
+        function callback(){
+            window.location.href = "views/telaAdm.html"; 
+        }
+
     } else {
         navigator.vibrate([300 , 300 , 200 , 100]);
             function incomplet() {
@@ -69,3 +73,4 @@ function checkUser(){
     let user = document.getElementById("loginCad").value;
     new UserController().getUser(user);
 }
+

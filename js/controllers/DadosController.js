@@ -248,5 +248,40 @@ class DadosController{
         });
     }
 
+    insertStatusUser(idUser){
+        let status = "online";
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/dao/insertStatusUser.php",
+            method: "POST",
+            data:{"idUser" : idUser , "status" : status},
+            success: function(result){
+                console.log("ON THE LINE");
+            },error:function(result){
+                console.log("Não On The Line");
+            }
+        })
+        
+    }
 
-}
+    changeStatusUser(idUser , callback){
+        let status = "offline";
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/dao/updateStatusUser.php",
+            method: "POST",
+            data:{"idUser" : idUser , "status" : status},
+            success: function(result){
+                callback(result);
+            },error: function(result){
+                console.log("Erro ajax change status user");
+            }
+        });
+    }
+
+
+ }
+
+
+
+
+
+

@@ -24,7 +24,7 @@ class UserController{
         })
     }
 
-    login(login , pass){
+    login(login , pass , callback ){
         //let dialog = new IndeterminateProgressDialog("Aguarde");
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/controller/login.php",
@@ -35,7 +35,9 @@ class UserController{
                 let dados = JSON.parse(result);
                 if(dados != null){
                     localStorage.setItem("result" , result);
-                    window.location.href = "views/telaAdm.html"; 
+                    //localStorage.setItem("dadosStatus" , result);
+                    //insertStatus();
+                    callback();
                 } else {
                     navigator.vibrate([300 , 300 , 200 , 100]);
                     function erroLogin() {
@@ -51,6 +53,7 @@ class UserController{
                 }
             }
         });
+
     }
 
     newUser(login , pass , name , phone , data){

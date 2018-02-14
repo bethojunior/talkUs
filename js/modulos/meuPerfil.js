@@ -25,6 +25,25 @@ function loadPerfil(){
     }
 }
 
+//INSERIR STATUS DO USUARIOS ONLINE/OFFLINE
+function sendStatusUser(){
+    let idUser = dados.id;
+    new DadosController().insertStatusUser(idUser);
+    new DadosController().changeColorStatusChat();
+}
+
+function disableStatusUser(){
+    let idUser = dados.id;
+    new DadosController().changeStatusUser(idUser , callback);
+    function callback(result){
+        if(result != false){
+            console.log("Status Offline");
+        }else {
+            console.log("ERROR STATUS USER");
+        }
+    };
+}
+
 //PEGA TODOS OS POSTS
 function getPosts(){
     new DadosController().getAllPosts();
