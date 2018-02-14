@@ -31,7 +31,7 @@ function loadPerfil(){
 function checkPost(){
     setTimeout(function(){
         new CrudUpdate().updateData();
-    }, 100);
+    }, 1);
 }
 
 //PEGA TODOS USUÁRIOS PARA EXPOR NA LISTA DE CHAT
