@@ -85,12 +85,22 @@ class DadosController{
             success: function(result){
                 var dados = JSON.parse(result);
                 let txt = '';
+                
                 for(let i in dados){
+                    var pathImg = "http://betho3.000webhostapp.com/files/";
+                    let src = "";
+                    let image = dados[i].src;
+                    if(image === null){
+                        src = "" ;
+                    } else{
+                        src = pathImg+image;
+                    }
                     let idPost = dados[i].id;
                     let idUser = dados[i].idUser;
                     txt += 
                     "<div onclick='moreInformationPost(" + idPost + " , " + idUser +")' class='divDados'>"+
                         //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
+                        "<div class='col s12'><img width='50%' src='"+src+"'></div>"+
                         "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
                         "<span class='postoForPost'>" + dados[i].post +"</span>"+
                         
