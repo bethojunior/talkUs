@@ -100,7 +100,7 @@ class DadosController{
                     txt += 
                     "<div onclick='moreInformationPost(" + idPost + " , " + idUser +")' class='divDados'>"+
                         //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
-                        "<div class='col s12'><img width='50%' src='"+src+"'></div>"+
+                        "<div class='col s4'><img width='100%' src='"+src+"'></div>"+
                         "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
                         "<span class='postoForPost'>" + dados[i].post +"</span>"+
                         

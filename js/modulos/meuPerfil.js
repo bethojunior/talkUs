@@ -58,6 +58,7 @@ function getBestPostsForUser(){
         let best = JSON.parse(result);
         let txt = '';
         for(let i in best){
+            
             let idPost = best[i].id;
             let idUser = best[i].idUser;
             txt += 
