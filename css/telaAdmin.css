@@ -26,11 +26,26 @@ html{
     padding: 1%;
 }
 
-#imgPerfil {
-    max-width: 100%!important;
+.imgPerfil {
+    width: 100%!important;
     border: solid 1px gray;
-    border-radius: 8px;
+    border-radius: 8px;   
 }
+
+#myImage{
+    width: 100%!important;
+}
+#imagem {
+    background-image: url("../img/users/default.png");
+    display: none;
+    width: 100%!important;
+    text-align: center;
+}
+
+#imagemCad {
+    display: none;
+}
+
 
 #namePerfil , #agePerfil , #statusCivil , #phonePerfil {
     font-family: "Raleway";
@@ -87,4 +102,16 @@ textarea {
     text-align: center;
     max-width: 50%!important;
     height: 100%!important;
+}
+
+.fileUp{
+    display: none!important;
+}
+
+.titlePostPic{
+    border: 1px solid red!important;
+}
+
+#userGeral {
+    display: none;
 }

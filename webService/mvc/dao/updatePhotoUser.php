@@ -1,22 +1,11 @@
+<?php 
 
-<?php
+    require "../service/conexao.php";
+    $id = $_POST['id'];
+    $imgUser = $_POST['sobre'];
 
-require "../service/conexao.php";
-
-
-date_default_timezone_set('America/Fortaleza');
-$data = date('d-m-y-H-i-s');
-$idUser = $_POST['idUser'];
-$login = $_POST['login'];
-$post = $_POST['post'];
-$titulo = $login.".".$data;
-$imgExt = strtolower(pathinfo($_FILES['imagem']['name'],PATHINFO_EXTENSION));
-$src = $titulo.".".$imgExt;
-
- 
-$sql = "INSERT INTO postagens (name , post , data , login , idUser , src) VALUES ('$login' , '$post' , '$data' , '$login' , '$idUser' , '$src')";
-$exc = mysqli_query($conexao , $sql) or die (mysqli_error($sql));
-
+    $sql = "UPDATE users SET imgUser = '$imgUser' WHERE id = '$id' ";
+    $exc = mysqli_query($conexao , $sql);
 
 
 // UPLOAD IMAGENS //////////////////////

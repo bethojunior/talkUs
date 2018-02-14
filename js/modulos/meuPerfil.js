@@ -6,21 +6,31 @@ function loadPerfil(){
     getAllUsers();
     let checkId = dados.id;
     if(checkId != null ){
+
         var age = dados.dataNascimento;
         let imgPerfil = dados.imgUser;
         let src = '';
         if(imgPerfil === ""){
             src = "../img/users/default.png";
+        }else {
+            src = "http://betho3.000webhostapp.com/profile/"+imgPerfil;
         }
         document.getElementById("idUserPost").value = dados.id;
         document.getElementById("nameUserPost").value = dados.login;
-        document.getElementById("imgPerfil").src = src;
-        document.getElementById("namePerfil").innerHTML = dados.login;
-        document.getElementById("agePerfil").innerHTML = age;
-        document.getElementById("phonePerfil").innerHTML = dados.phone;
-        document.getElementById("phonePerfil").href = "tel:" +dados.phone;
-        document.getElementById("mailPerfil").innerHTML = dados.login;
-        document.getElementById("sobrePerfil").innerHTML = dados.sobre;
+
+        var txt = "";
+        txt += 
+        "<div class='row'>"+
+            "<img class='col s4' id='imgPerfil' src='" + src + "'>" + 
+            "<div class='col s4'>"+
+                "<span id='mailPerfil'>" + dados.login + "</span><br>"+
+                "<span>" + age + "</span><br>"+
+                "<span><a href='tel:" + dados.phone +"'>" + dados.phone + "</a></span><br>"+
+                "<span>" + dados.login + "</span><br>"+
+                "<span>" + dados.sobre + "</span>"+
+            "</div>"+
+        "</div>";
+        document.getElementById("userPerfil").innerHTML = txt;
 
     }else {
         window.location.href = "../index.html";
@@ -94,7 +104,7 @@ function getAllUsers(){
             if(img === ""){
                 path = "../img/users/default.png";
             } else {
-
+                path = "http://betho3.000webhostapp.com/profile/"+img ;
             }
             let status = users[i].status;
             let line = "";
@@ -170,31 +180,43 @@ if(document.getElementById("savePost") != null){
 }
 
 
-//SEND FILE 
-
+//SEND FILE FOR POST
 function sendFile(){
     var formFile = document.getElementById("formFile");
     var formData = new FormData(formFile);
-    new DadosController().sendPostFile(formData , callback);
-    function callback(result){
-        if(result != false){
-            console.log("Imagem enviada com sucesso");
-        }else {
-            navigator.vibrate([300 , 300 , 200 , 100]);
-            function err() {
-                location.reload();
+    let e = document.getElementById("formImg1").value;
+    let e1 = document.getElementById("formImg2").value;
+    let title = document.getElementById("titlePostPic").value
+    
+    if(e != "" && e1 != "" && title != ""){
+        new DadosController().sendPostFile(formData , callback);
+        function callback(result){
+            if(result != false){
+                formFile.reset();
+                console.log("Imagem enviada com sucesso");
+            }else {
+                formFile.reset();
             }
-            
-            navigator.notification.alert(
-                'Erro ao enviar post.', 
-                err,        
-                'Conexão a internet instavel',                     
-                'OK'                 
-            );
         }
     }
+    else {
+        console.log(result);
+        navigator.vibrate([300 , 300 , 200 , 100]);
+        document.getElementById("titlePostPic").className = "titlePostPic";
+    }
+
 }
 
+//SEND PICTURE USER
+function pictureUserPerfil(){
+    document.getElementById("userGeral").value = dados.id;
+    let formulario = document.getElementById("imgShow").value;
+    let form = new FormData(formulario);
+    new DadosController().sendImageUser(form , callback);
+    function callback(result){
+        console.log(result);
+    }
+}
 
 //LOGOUT // STATUS OFF
 function getOutApp(){

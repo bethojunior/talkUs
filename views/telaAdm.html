@@ -40,7 +40,7 @@
                     <li><a href="../index.html">Sair</a></li>
                 </ul> -->
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="#"><i class="material-icons">search</i>Pesquisar</a></li>
+                    <li><a href="#modalAlterarPhoto"><i class="material-icons">search</i>Alterar perfil</a></li>
                     <li><a href="#"><i class="material-icons">share</i>Compartilhar</a></li>
                     <li><a onclick="getOutApp()" ><i class="material-icons">label_outline</i>Sair</a></li>
                 </ul>
@@ -58,14 +58,17 @@
         <div class="latterNav">
             <!-- MEU PERFIL -->
             <div id="meuPerfil" class="col s12">
-                    <div class="row meuPerfil">
-                        <img class="col s4" id="imgPerfil" src='../img/users/default.png'>
+                    <!-- <div class="row meuPerfil">
+                        <img class="col s4" id="imgShow">
                         <div class="col s8">
                             <span id="mailPerfil"></span><br>
                             <span id="namePerfil"></span><br>
                             <span id="agePerfil"></span><br>
                             <a id="phonePerfil"></a>
                         </div>
+                        
+                    </div> -->
+                    <div id="userPerfil">
                         <textarea placeholder="Escreva sobre você" onchange="upSobre()"  class="col s12 sobre" id="sobrePerfil"></textarea>
                     </div>
                 </div>
@@ -81,6 +84,18 @@
                             </a>
                             <ul>
                                 <li><a onclick="app.capturePhoto()" class="btn-floating green"><i class="material-icons">camera</i></a></li>
+
+                                <!-- MODAL PREVIZUALIZAR IMAGEM FOR POST -->
+                                <div id="modalPhotoPost" class="modal">
+                                    <div class="modal-content">
+                                        <h4>Modal Header</h4>
+                                        <p>A bunch of text</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                    </div>
+                                </div>
+                                              
                                 <li><a href="#modalSendPost" class="btn-floating yellow darken-1"><i class="material-icons">mode_edit</i></a></li>
                                 <li><a href="#modalSendFile" class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
                             </ul>
@@ -141,23 +156,43 @@
 <!-- MODAL SEND FILE -->
 <div id="modalSendFile" class="modal bottom-sheet">
     <div class="modal-content">
-        <form id="formFile" action="#">
+        <form id="formFile">
             <div class="file-field input-field">
               <div class="btn">
-                <span>File</span>
-                <input name="imagem" type="file">
+                <span>Galeria</span>
+                <input id="formImg1" name="imagem" type="file">
               </div>
               <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
+                <input id="formImg2" class="file-path validate" type="text">
               </div>
             </div>
             <input type="hidden" id="idUserPost" name="idUser">
             <input type="hidden" id="nameUserPost" name="login">
-            <input placeholder="Titulo" name="post"> 
-          </form>
+            <input id="titlePostPic" placeholder="Titulo" name="post"> 
+        </form>
     </div>
     <div class="modal-footer">
         <a onclick="sendFile()" href="#!" class="col s12 modal-action modal-close waves-effect waves-green ">Enviar</a>
+    </div>
+</div>
+
+
+<!-- MODAL ALTERAR INFORMAÇÕES SOBRE O PERFIL -->
+
+<div id="modalAlterarPhoto" class="modal bottom-sheet">
+    <div class="modal-content">
+        <form class="imgPerfil" id="imgShow">
+            <input type="hidden" id="userGeral" name="id">
+            <img id="showImage" >
+            <div id="getOut" class="file-field input-field">
+                <div class="">
+                    <input id="" name="imagem" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+                </div>
+            </div>
+        </form>
     </div>
 </div>
           

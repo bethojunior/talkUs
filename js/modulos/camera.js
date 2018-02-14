@@ -1,3 +1,4 @@
+//FOTO DO PERFIL
 var app = {
     // Application Constructor
     initialize: function() {
@@ -14,10 +15,13 @@ var app = {
             destinationType: Camera.DestinationType.FILE_URI });
         
         function onSuccess(imageURI) {
-            // document.getElementById("getOut").style.display = "none";
-            // var image = document.getElementById('myImage');
-            // image.src = imageURI;
-            // document.getElementById("imagemCad").value = imageURI;
+            function callback(result){
+                document.getElementById("getOut").style.display = "none";
+                var image = document.getElementById('myImage');
+                image.src = imageURI;
+                document.getElementById("imagemCad").value = imageURI;
+                $('#modalPhotoPost').modal('open');
+            }
             
         }
         
@@ -31,3 +35,4 @@ var app = {
     }
     
 };
+

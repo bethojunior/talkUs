@@ -296,8 +296,8 @@ class DadosController{
             success: function (data) {
                 callback(data)
             },error: function(data){
-                alert("erro");
-                console.log(data);
+                //alert("erro");
+                callback(data);
             },
             cache: false,
             contentType: false,
