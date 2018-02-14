@@ -104,14 +104,15 @@ class UserController{
                 let dados = JSON.parse(result);
                 let log = dados.login;
                 if(user == log){
+                    navigator.vibrate([300 , 300 , 200 , 100]);
                     function userError() {
-                        //location.reload();
+                        document.getElementById("loginCad").value = "";
                     }
                     
                     navigator.notification.alert(
-                        'Erro ao cadastrar usuário', 
+                        'Escolha outro nome de usuário ', 
                         userError,        
-                        'Usuário já existe',                     
+                        'Nome de usuário já existe',                     
                         'OK'                 
                     );
                 }else {

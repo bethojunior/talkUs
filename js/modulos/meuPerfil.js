@@ -74,6 +74,7 @@ function getBestPostsForUser(){
 function checkPost(){
     setTimeout(function(){
         new Crud().updateData();
+        getAllUsers();
     }, 1);
 }
 
@@ -166,5 +167,6 @@ if(document.getElementById("savePost") != null){
 //LOGOUT
 function getOutApp(){
     localStorage.clear();
+    disableStatusUser();
     window.location.href = "../index.html";
 }
