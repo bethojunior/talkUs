@@ -177,7 +177,21 @@ function sendFile(){
     var formData = new FormData(formFile);
     new DadosController().sendPostFile(formData , callback);
     function callback(result){
-        alert("ok");
+        if(result != false){
+            console.log("Imagem enviada com sucesso");
+        }else {
+            navigator.vibrate([300 , 300 , 200 , 100]);
+            function err() {
+                location.reload();
+            }
+            
+            navigator.notification.alert(
+                'Erro ao enviar post.', 
+                err,        
+                'Conexão a internet instavel',                     
+                'OK'                 
+            );
+        }
     }
 }
 
