@@ -122,34 +122,14 @@ class DadosController{
                         document.getElementById("dataPostModal").innerHTML = postSelect.data;
 
                         //MUDA ICONE DE ADD OU NÃO POST AOS FAVORITOS
-                        localStorage.setItem("postoId" , postId);
-                        //checkPost();
+                        
                     }
                     let idPost = postSelect.id;
-                    //checkPost(idPost);
-                    
+                    localStorage.setItem("idPost" , idPost);
                 }
 
             },error: function(result){
 
-            }
-        });
-    }
-
-    checkPost(idPost){
-        var idPost = localStorage.getItem(postId);
-        $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/checkPost.php",
-            method: "POST",
-            data: {"idPost" : idPost , "idUser" : idUser},
-            success: function(result){
-                if(result != false){
-                    document.getElementById("postSaved").style.display = "block";
-                    $('#modalOpt').modal('open');
-                } else{
-                    document.getElementById("savePost").style.display = "block";
-                    $('#modalOpt').modal('open');
-                }
             }
         });
     }
@@ -202,6 +182,7 @@ class DadosController{
     }
 
     postSave(idPost){
+        localStorage
         let idUser = dados.id;
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/dao/insertBestPosts.php",
@@ -210,6 +191,8 @@ class DadosController{
             success: function(result){
                 if(result != false){
                     console.log("Adcionado aos favoritos com sucesso");
+                    document.getElementById("savePost").style.display = "none";
+                    document.getElementById("postSaved").style.display = "block";
                 } else {
                     function erroAdd() {
                         location.reload();
@@ -257,6 +240,21 @@ class DadosController{
                 document.getElementById("divBestPost").innerHTML = txt;
             },error: function(result){
 
+            }
+        });
+    }
+
+    checkPost(callback){
+        let idPost = localStorage.getItem("idPost");
+        let idUser = dados.id;
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/controller/checkPost.php",
+            method: "POST",
+            data:{"idPost" : idPost , "idUser" : idUser},
+            success: function(result){
+                callback(result);
+            }, error: function(result){
+                alert("ERRO AO CHECKAR POST SALVO/NOTSALVO");
             }
         });
     }

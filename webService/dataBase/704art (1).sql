@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 10.129.76.12
--- Tempo de geração: 12/02/2018 às 23:41
+-- Tempo de geração: 13/02/2018 às 23:17
 -- Versão do servidor: 5.6.26-log
 -- Versão do PHP: 5.6.12
 
@@ -19,6 +19,35 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `704art`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `bestPosts`
+--
+
+CREATE TABLE IF NOT EXISTS `bestPosts` (
+`id` int(11) NOT NULL,
+  `idPost` int(11) NOT NULL,
+  `idUser` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Fazendo dump de dados para tabela `bestPosts`
+--
+
+INSERT INTO `bestPosts` (`id`, `idPost`, `idUser`) VALUES
+(1, 66, 32),
+(2, 62, 37),
+(3, 65, 37),
+(4, 66, 20),
+(5, 66, 38),
+(6, 62, 38),
+(7, 58, 38),
+(8, 58, 38),
+(9, 53, 38),
+(10, 60, 38),
+(11, 60, 38);
 
 -- --------------------------------------------------------
 
@@ -99,6 +128,21 @@ CREATE TABLE IF NOT EXISTS `carousel` (
 
 INSERT INTO `carousel` (`id`, `imagem`, `video`, `titulo`) VALUES
 (27, 'O cÃ¢ncer de colo de Ãºtero.jpg', '', 'O cÃ¢ncer de colo de Ãºtero');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `chat`
+--
+
+CREATE TABLE IF NOT EXISTS `chat` (
+`id` int(11) NOT NULL,
+  `idChat` int(11) NOT NULL,
+  `idUser1` int(11) NOT NULL,
+  `idUser2` int(11) NOT NULL,
+  `mensagem` text NOT NULL,
+  `hora` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -199,41 +243,45 @@ CREATE TABLE IF NOT EXISTS `postagens` (
 `id` int(11) NOT NULL,
   `name` varchar(40) NOT NULL,
   `post` text NOT NULL,
-  `data` date DEFAULT NULL,
+  `data` varchar(50) DEFAULT NULL,
   `login` varchar(50) NOT NULL,
   `idUser` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=87 ;
 
 --
 -- Fazendo dump de dados para tabela `postagens`
 --
 
 INSERT INTO `postagens` (`id`, `name`, `post`, `data`, `login`, `idUser`) VALUES
-(1, 'hellen', '45454', '2018-02-12', '', 0),
-(2, 'hellen', 'dsfsdf', '2018-02-12', '', 0),
-(3, 'hellen', 'kjkgfd', '2018-02-12', '', 0),
-(4, 'hellen', 'sdfdsfdsfsd', '2018-02-12', '', 0),
-(5, 'hellen', 'ATÃ‰ QUE FIM PEGOU\n', '2018-02-12', '', 0),
-(6, 'hellen', 'Testando de novo', '2018-02-12', '', 0),
-(7, 'Rany', 'Iai gay', '2018-02-12', '', 0),
-(8, 'Rany', 'Esta merda nÃ£o me notifica quando alguma mensagem chega', '2018-02-12', '', 0),
-(9, 'Rany', 'Conserta esse troÃ§o, programador buseta', '2018-02-12', '', 0),
-(10, 'Rany', 'Outra coisa', '2018-02-12', '', 0),
-(11, 'Rany', 'Pq esse xinim sempre pede ssnha quando eu entro?', '2018-02-12', '', 0),
-(12, 'Rany', 'Rola pedir a digital?', '2018-02-12', '', 0),
-(13, 'Rany', 'Que nem no evernote?', '2018-02-12', '', 0),
-(14, 'hellen', 'kkkkk\n', '2018-02-12', '', 0),
-(15, 'hellen', 'to colocando a opÃ§Ã£o de enviar aperta', '2018-02-12', '', 0),
-(16, 'hellen', 'e vou colocar a notificac%C', '2018-02-12', '', 0),
-(17, 'hellen', 'e ajeitar os cara', '2018-02-12', '', 0),
-(18, 'hellen', 'caracteres', '2018-02-12', '', 0),
-(19, 'Rany', 'NotificaÃ§Ã£o Ã© uma boa\n', '2018-02-12', '', 0),
-(20, 'Rany', 'Por o horÃ¡rio que vc mandou a mensagem tbm Ã© interessante', '2018-02-12', '', 0),
-(21, 'Rany', 'Ou nÃ£o?', '2018-02-12', '', 0),
-(22, 'hellen', 'llllllllllllllllllllllllllllllllllllllllllllllllllllllll llllllllllllllllllllllllllllllllllllllllllllllllllllllll llllllllllllllllllllllllllll llllllllllllllllllllllllllll llllllllllllllllllllllllllllllllllllllllllllllllllllllll lllllllllllllllllllll', '2018-02-12', '', 0),
-(23, 'Betho', 'To testando\n', '2018-02-12', '', 0),
-(24, 'Rany', 'Ta', '2018-02-12', '', 0),
-(25, 'Betho', 'OK', '2018-02-12', '', 0);
+(52, 'hellen', 'Teste de permissÃ£o ', '2018-02-12', 'hellen', 20),
+(53, 'Betho', 'ðŸ˜ŽðŸ˜', '2018-02-12', 'Betho', 37),
+(54, 'hellen', 'Oitro tezte', '2018-02-12', 'hellen', 20),
+(56, 'Rany', 'Oi', '2018-02-12', 'Rany', 39),
+(57, 'Rany', 'Meu nome Ã© Josef Climber', '2018-02-12', 'Rany', 39),
+(58, 'hellen', 'Kkkkkkkkkkk MIORES DO MUNDO', '2018-02-12', 'hellen', 20),
+(59, 'Rany', 'Kkkk', '2018-02-12', 'Rany', 39),
+(60, 'Jr', 'Teste', '2018-02-12', 'Jr', 38),
+(62, 'Betho', 'kjxcvcvd\n', '2018-02-13', 'Betho', 37),
+(64, 'Jr', 'Nsnsnss s s', '2018-02-13', 'Jr', 38),
+(65, 'Jr', 'Ururyffu', '2018-02-13', 'Jr', 38),
+(66, 'Jr', 'Oosl ld', '2018-02-13', 'Jr', 38),
+(68, 'Jr', 'Eu sou o goku', '2018-02-13', 'Jr', 38),
+(69, 'Jr', 'Ters', '2018-02-13', 'Jr', 38),
+(70, 'Jr', 'Hhhh', '2018-02-13', 'Jr', 38),
+(71, 'Jr', 'Ok', '2018-02-13', 'Jr', 38),
+(73, 'hellen', 'fdgdfg', '2018-02-13', 'hellen', 20),
+(74, 'hellen', 'fdgdfgdf', '2018-02-13', 'hellen', 20),
+(75, 'hellen', 'dklcklvdf', '2018-02-13', 'hellen', 20),
+(77, '', 'Nsnsnns', '2018-02-13', 'Jr', 38),
+(78, '', 'Nsnsnns\nMsnmsmsks', '2018-02-13', 'Jr', 38),
+(79, '', 'Nsnsnns\nMsnmsmsks\n', '2018-02-13', 'Jr', 38),
+(80, '', 'Nsnsnns\nMsnmsmsks\nKkkk', '2018-02-13', 'Jr', 38),
+(81, '', 'Lkhgg', '2018-02-13', 'Jr', 38),
+(82, 'hellen', '4545445', '2018-02-13', 'hellen', 20),
+(83, 'hellen', 'dklsflksd', '2018-02-13', 'hellen', 20),
+(84, 'Jr', 'Ok', '2018-02-13', 'Jr', 38),
+(85, 'hellen', 'sdfds\n', '2018-02-13 23:16:22', 'hellen', 20),
+(86, 'hellen', 'sds', '23:16:58', 'hellen', 20);
 
 -- --------------------------------------------------------
 
@@ -256,10 +304,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`, `name`, `phone`, `dataNascimento`, `sobre`) VALUES
-(20, 'hellen', 'hellen', 'Hellen lais', '85991394539', '', 'Change'),
+(20, 'hellen', 'hellen', 'Hellen lais', '85991394539', '', 'Changedf'),
 (35, 'hemile', 'hemile', 'Princesa Hemile', '85991394539', '', ''),
-(37, 'Betho', '2', 'Betho', '85748545', '', 'TESTEoknsnsns'),
-(38, 'Jr', '1', 'Betho', '85991394539', '1997-05-19', 'Oi, eu sou o goku!'),
+(38, 'Jr', '1', 'Betho', '85991394539', '1997-05-19', 'Oi, eu sou o goku\n'),
 (39, 'Rany', 'ranyeli123', 'Ranyeli', '85992015126', '1997-02-15', '');
 
 -- --------------------------------------------------------
@@ -320,6 +367,12 @@ INSERT INTO `video` (`id`, `video`) VALUES
 --
 
 --
+-- Índices de tabela `bestPosts`
+--
+ALTER TABLE `bestPosts`
+ ADD PRIMARY KEY (`id`);
+
+--
 -- Índices de tabela `cadastroUser`
 --
 ALTER TABLE `cadastroUser`
@@ -335,6 +388,12 @@ ALTER TABLE `cards`
 -- Índices de tabela `carousel`
 --
 ALTER TABLE `carousel`
+ ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `chat`
+--
+ALTER TABLE `chat`
  ADD PRIMARY KEY (`id`);
 
 --
@@ -384,6 +443,11 @@ ALTER TABLE `video`
 --
 
 --
+-- AUTO_INCREMENT de tabela `bestPosts`
+--
+ALTER TABLE `bestPosts`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+--
 -- AUTO_INCREMENT de tabela `cadastroUser`
 --
 ALTER TABLE `cadastroUser`
@@ -398,6 +462,11 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=84;
 --
 ALTER TABLE `carousel`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT de tabela `chat`
+--
+ALTER TABLE `chat`
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de tabela `doacao`
 --
@@ -417,7 +486,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;
 -- AUTO_INCREMENT de tabela `postagens`
 --
 ALTER TABLE `postagens`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=51;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=87;
 --
 -- AUTO_INCREMENT de tabela `users`
 --

@@ -1,0 +1,42 @@
+#usersChat {
+    margin-top: 2%;
+}
+.row {
+    margin: 0!important;
+    padding: 0!important;
+}
+.divUserChat {
+    background-color: white;
+    margin: 2%!important;
+    padding: 1%;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.divPictureUser {
+    border-radius: 80px!important;
+}
+
+.divPictureUser img {
+    border: solid 1px gray;
+    border-radius: 80px;
+    width: 100%!important;
+}
+
+#statusUser {
+    border-radius: 120px 120px 0px 0px;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: orange;
+}
+
+.nameUserChat {
+    font-size: 15pt;
+    font-family: "Raleway";
+    font-weight: bold;
+}
+
+.statusUserChat {
+    font-size: 13pt;
+    font-family: "Montserrat";
+    
+}

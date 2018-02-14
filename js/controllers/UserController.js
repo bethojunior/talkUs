@@ -1,5 +1,29 @@
 class UserController{
 
+    getAll(showUser){
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/controller/getAllUsers.php",
+            success: function(result){
+                var users = JSON.parse(result);
+                showUser(users);
+
+            },error: function(result){
+
+                navigator.vibrate([300 , 300 , 200 , 100]);
+                    function erroUsers() {
+                        //location.reload();
+                    }
+                    
+                    navigator.notification.alert(
+                        'Erro ao carregar lista de chat', 
+                        erroUsers,        
+                        'Erro',                     
+                        'OK'                 
+                    );
+            }
+        })
+    }
+
     login(login , pass){
         //let dialog = new IndeterminateProgressDialog("Aguarde");
         $.ajax({
@@ -75,7 +99,6 @@ class UserController{
             method: "GET",
             data: {"login" : login},
             success: function(result){
-                console.log(result);
                 let dados = JSON.parse(result);
                 let log = dados.login;
                 if(user == log){
@@ -95,6 +118,8 @@ class UserController{
             }
         });
     }
+
+
 
 }
 

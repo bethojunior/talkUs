@@ -4,6 +4,7 @@
     <head>
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="../css/telaAdmin.css">
+        <link rel="stylesheet" type="text/css" href="../css/chat.css">
         <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway|Ubuntu" rel="stylesheet">
         <link href="../Materialize/css/materialize.css" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -41,17 +42,19 @@
             </div>
             <div class="nav-content">
                 <ul class="tabs tabs-transparent">
-                <li class="tab"><a href="#meuPerfil"><i class="material-icons">person_pin_circle</i></a></li>
-                <li class="tab"><a href="#explorar" class="active"> <i class="material-icons">explore</i></a></li>
-                <li class="tab "><a href="#bestPost"><i class="material-icons">bookmark_border</i></a></li>
+                    <li class="tab"><a href="#meuPerfil"><i class="material-icons">person_pin_circle</i></a></li>
+                    <li class="tab"><a href="#explorar" class="active"> <i class="material-icons">explore</i></a></li>
+                    <li class="tab "><a href="#chat"><i class="material-icons">people_outline</i></a></li>
+                    <li class="tab "><a href="#bestPost"><i class="material-icons">bookmark_border</i></a></li>
                 </ul>
             </div>
         </nav>
 
         <div class="latterNav">
+            <!-- MEU PERFIL -->
             <div id="meuPerfil" class="col s12">
                     <div class="row meuPerfil">
-                        <img class="col s4" id="imgPerfil" src="../img/icon.png">
+                        <img class="col s4" id="imgPerfil" src='../img/users/default.png'>
                         <div class="col s8">
                             <span id="mailPerfil"></span><br>
                             <span id="namePerfil"></span><br>
@@ -61,24 +64,33 @@
                         <textarea placeholder="Escreva sobre você" onchange="upSobre()"  class="col s12 sobre" id="sobrePerfil"></textarea>
                     </div>
                 </div>
-        
+                <!-- FIM MEU PERFIL -->
+                <!-- TODOS OS POSTS -->
                 <div id="explorar" class="col s12">
-        
                     <div class="row divSend">
                         <span class="col s1"></span>
                         <textarea onchange="sendPost()" onkeypress="return send(event)" class="col s10" type="text" id="myPost" placeholder="Talk .."></textarea>
                         <span class="col s1"></span>
                     </div>
-                    <!--POSTS GLOBAIS -->
+                    <!--Sshow posts -->
                     <ul class="col s12" id="divAll"></ul>
-        
                 </div>
-        
-                <div class="col s12">
+                <!-- FIM TODOS POSTS -->
+
+                <!--CHAT-->
+                <div id="chat" class="col s12">
+                    <div class="row" id="usersChat">
+
+                    </div>
+                </div>  
+                <!--FIM CHAT-->
+                <!-- POSTS SALVOS -->
+                <div id="bestPost" class="col s12">
                     <div id="divBestPost">
                     
                     </div>
                 </div>
+                <!-- FIM POSTS SALVOS -->
         </div>
 
 <!-- OPÇÕES DE POST -->
