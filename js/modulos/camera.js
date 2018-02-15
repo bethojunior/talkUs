@@ -11,16 +11,16 @@ var app = {
 
     capturePhoto : function(){
         
-        navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+        navigator.camera.getPicture(onSuccess, onFail, { quality: 80,
             destinationType: Camera.DestinationType.FILE_URI });
-        
         function onSuccess(imageURI) {
+            $('.fixed-action-btn').closeFAB();
+            $('#modalPhotoPost').modal('open');
             function callback(result){
                 document.getElementById("getOut").style.display = "none";
                 var image = document.getElementById('myImage');
                 image.src = imageURI;
                 document.getElementById("imagemCad").value = imageURI;
-                $('#modalPhotoPost').modal('open');
             }
             
         }

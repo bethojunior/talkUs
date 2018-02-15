@@ -159,3 +159,7 @@ textarea {
     font-size: 16pt!important;
     font-family: "Montserrat"!important;
 }
+
+.modalPicture {
+    height: 300px;
+}
