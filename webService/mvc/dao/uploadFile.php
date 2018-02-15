@@ -2,7 +2,7 @@
 <?php
 
 require "../service/conexao.php";
-
+require "../lib/WideImage.php";
 
 date_default_timezone_set('America/Fortaleza');
 $data = date('d-m-y-H-i-s');
@@ -44,20 +44,20 @@ if(!empty($imgFile)){
 
             // //IMAGENS SMALL
 
-            // $img = WideImage::load($upload_dir.$userpic);
-            // //REDIMENCIONAR IMAGEM
-            // $red = $img->resize(50,50);
-            // //SALVANDO EM QUALQUER FORMATO
-            // $red->saveToFile($upload_dir.'small/'.$userpic);
+            $img = WideImage::load($upload_dir.$userpic);
+            //REDIMENCIONAR IMAGEM
+            $red = $img->resize(200, 200 , 'inside');
+            //SALVANDO EM QUALQUER FORMATO
+            $red->saveToFile($upload_dir.'small/'.$userpic,100);
 
 
-            // //IMAGENS MEDIUM
+            //IMAGENS MEDIUM
 
-            // $img = WideImage::load($upload_dir.$userpic);
-            // //REDIMENCIONAR IMAGEM
-            // $red = $img->resize(300,300);
-            // //SALVANDO EM QUALQUER FORMATO
-            // $red->saveToFile($upload_dir.'medium/'.$userpic);
+            $img = WideImage::load($upload_dir.$userpic);
+            //REDIMENCIONAR IMAGEM
+            $red = $img->resize(200, 200 , 'inside');
+            //SALVANDO EM QUALQUER FORMATO
+            $red->saveToFile($upload_dir.'medium/'.$userpic,100);
 
         }
         else{

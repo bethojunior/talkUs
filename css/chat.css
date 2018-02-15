@@ -13,12 +13,12 @@
 }
 
 .divPictureUser {
-    border-radius: 80px!important;
+    border-radius: 8px!important;
 }
 
 .divPictureUser img {
     border: solid 1px gray;
-    border-radius: 80px;
+    border-radius: 8px;
     width: 100%!important;
 }
 
@@ -57,4 +57,7 @@
     color: #D81B07!important;
 }
 
+.imgPerfil{
+    margin-top: 20%!important;
+}
 

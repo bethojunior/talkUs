@@ -4,6 +4,7 @@ function loadPerfil(){
     getPosts();
     checkPost();
     getAllUsers();
+    getMyAllPosts();
     let checkId = dados.id;
     if(checkId != null ){
 
@@ -13,7 +14,7 @@ function loadPerfil(){
         if(imgPerfil === ""){
             src = "../img/users/default.png";
         }else {
-            src = "http://betho3.000webhostapp.com/profile/"+imgPerfil;
+            src = "http://betho3.000webhostapp.com/profile/medium/"+imgPerfil;
         }
         document.getElementById("idUserPost").value = dados.id;
         document.getElementById("nameUserPost").value = dados.login;
@@ -24,8 +25,8 @@ function loadPerfil(){
             "<img class='col s4' id='imgPerfil' src='" + src + "'>" + 
             "<div class='col s4'>"+
                 "<span id='mailPerfil'>" + dados.login + "</span><br>"+
-                "<span>" + age + "</span><br>"+
-                "<span><a href='tel:" + dados.phone +"'>" + dados.phone + "</a></span><br>"+
+                //"<span>" + age + "</span><br>"+
+                "<span><i class='material-icons'>local_phone</i><a href='tel:" + dados.phone +"'>" + dados.phone + "</a></span><br>"+
                 "<span>" + dados.login + "</span><br>"+
                 "<span>" + dados.sobre + "</span>"+
             "</div>"+
@@ -34,6 +35,35 @@ function loadPerfil(){
 
     }else {
         window.location.href = "../index.html";
+    }
+}
+
+//PEGA TODOS MEUS POSTS
+function getMyAllPosts(){
+    let idUser = dados.id;
+    new DadosController().getMyPosts(idUser , callback);
+    function callback(result){
+        var myPost = JSON.parse(result);
+        let txt = "";
+        for(let i in myPost){
+            var pathImg = "http://betho3.000webhostapp.com/files/medium/";
+            let src = "";
+            let image = myPost[i].src;
+            if(image === null){
+                src = "";
+            } else{
+                src = pathImg+image;
+            }
+
+            txt +=
+            "<div class='firstDivMyPost '>"+
+                "<span clas='col s12 myPostName'>" + myPost[i].name + "</span><br>"+
+                "<span clas='col s12 myPostPost'>" +myPost[i].post + "</span><br>"+
+                "<span clas='col s12 myPostImg'><img src='"+src  +"'></span><br>"+
+                "<label clas='col s12 right'>" + myPost[i].data + "</label><br>"+
+            "</div>";
+        }
+        document.getElementById("myPosts").innerHTML = txt;
     }
 }
 
@@ -104,7 +134,7 @@ function getAllUsers(){
             if(img === ""){
                 path = "../img/users/default.png";
             } else {
-                path = "http://betho3.000webhostapp.com/profile/"+img ;
+                path = "http://betho3.000webhostapp.com/profile/small/"+img ;
             }
             let status = users[i].status;
             let line = "";
@@ -210,11 +240,17 @@ function sendFile(){
 //SEND PICTURE USER
 function pictureUserPerfil(){
     document.getElementById("userGeral").value = dados.id;
-    let formulario = document.getElementById("imgShow").value;
+    let formulario = document.getElementById("imgShow");
     let form = new FormData(formulario);
     new DadosController().sendImageUser(form , callback);
     function callback(result){
-        console.log(result);
+        //console.log(result);
+        if(result != false){
+            alert("ok");
+            console.log("ok");
+        }else {
+            console.log("Erro");
+        }
     }
 }
 

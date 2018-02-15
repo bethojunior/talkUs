@@ -2,6 +2,19 @@ var dados = JSON.parse(localStorage.getItem("result"));
 
 class DadosController{
 
+    getMyPosts(idUser , callback){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/controller/getMyPosts.php",
+            method:"POST",
+            data:{"idUser" : idUser},
+            success: function(result){
+                callback(result);
+            },error:function(data){
+                console.log("Erro ajax get my posts");
+            }
+        });
+    }
+
     updateSobre(id , sobre){
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/dao/updateSobre.php",
@@ -87,7 +100,7 @@ class DadosController{
                 let txt = '';
                 
                 for(let i in dados){
-                    var pathImg = "http://betho3.000webhostapp.com/files/";
+                    var pathImg = "http://betho3.000webhostapp.com/files/medium/";
                     let src = "";
                     let image = dados[i].src;
                     if(image === null){
@@ -100,9 +113,9 @@ class DadosController{
                     txt += 
                     "<div onclick='moreInformationPost(" + idPost + " , " + idUser +")' class='divDados'>"+
                         //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
-                        "<div class='col s4'><img width='100%' src='"+src+"'></div>"+
                         "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
                         "<span class='postoForPost'>" + dados[i].post +"</span>"+
+                        "<div class='col s4'><img width='100%' src='"+src+"'></div>"+
                         
                     "</div>";
                 }
@@ -328,6 +341,34 @@ class DadosController{
             }
         });
     }
+
+    sendImageUser(form , callback){
+
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/updatePhotoUser.php",
+            type: 'POST',
+            data: form,
+            success: function (data) {
+                callback(data)
+            },error: function(data){
+                //alert("erro");
+                callback(data);
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function() {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function () {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+            return myXhr;
+            }
+        });        
+    }
+
 
 
  }

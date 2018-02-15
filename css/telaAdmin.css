@@ -84,13 +84,20 @@ textarea {
     border-radius: 8px;
     background-color: white;
     margin: 1%;
-    padding: 1%;
+    padding: 10px;
 }
 
 .nameForPost {
+    font-weight: bold;
     font-family: "Montserrat";
-    font-size: 15pt;
+    font-size: 20pt;
     text-align: center;
+}
+
+.postoForPost{
+    font-size: 17pt;
+    text-align: justify;
+
 }
 
 #moreInformationPost {
@@ -114,4 +121,41 @@ textarea {
 
 #userGeral {
     display: none;
+}
+
+.modalChangePicture{
+    width: 90%!important;
+    height: 500px!important;
+}
+
+.modalChange {
+    margin-top: 20%!important;
+}
+
+#mailPerfil {
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+#myPosts{
+    overflow: auto;
+}
+
+.firstDivMyPost{
+    background-color: white;
+    padding: 1%!important;
+    margin: 1%!important;
+    border-radius: 8px;
+}
+
+.myPostName {
+    font-weight: bold!important;
+    font-size: 18pt!important;
+    font-family: "Ubuntu"!important;
+}
+
+.myPostPost {
+    font-weight: bold!important;
+    font-size: 16pt!important;
+    font-family: "Montserrat"!important;
 }

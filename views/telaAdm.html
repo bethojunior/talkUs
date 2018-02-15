@@ -58,20 +58,13 @@
         <div class="latterNav">
             <!-- MEU PERFIL -->
             <div id="meuPerfil" class="col s12">
-                    <!-- <div class="row meuPerfil">
-                        <img class="col s4" id="imgShow">
-                        <div class="col s8">
-                            <span id="mailPerfil"></span><br>
-                            <span id="namePerfil"></span><br>
-                            <span id="agePerfil"></span><br>
-                            <a id="phonePerfil"></a>
-                        </div>
-                        
-                    </div> -->
                     <div id="userPerfil">
                         <textarea placeholder="Escreva sobre você" onchange="upSobre()"  class="col s12 sobre" id="sobrePerfil"></textarea>
                     </div>
-                </div>
+                    <div class="col s12" id="myPosts">
+
+                    </div>
+            </div>
                 <!-- FIM MEU PERFIL -->
                 <!-- TODOS OS POSTS -->
                 <div id="explorar" class="col s12">
@@ -172,27 +165,28 @@
         </form>
     </div>
     <div class="modal-footer">
-        <a onclick="sendFile()" href="#!" class="col s12 modal-action modal-close waves-effect waves-green ">Enviar</a>
+        <a onclick="sendFile()" class="col s12 modal-action modal-close waves-effect waves-green btn ">Enviar</a>
     </div>
 </div>
 
 
 <!-- MODAL ALTERAR INFORMAÇÕES SOBRE O PERFIL -->
 
-<div id="modalAlterarPhoto" class="modal bottom-sheet">
-    <div class="modal-content">
-        <form class="imgPerfil" id="imgShow">
-            <input type="hidden" id="userGeral" name="id">
+<div id="modalAlterarPhoto" class="modal modalChangePicture">
+    <div class="row modal-content">
+        <form class="col s4 imgPerfil" id="imgShow">
+            <input type="hidden" id="userGeral" name="idPerfilUser">
             <img id="showImage" >
             <div id="getOut" class="file-field input-field">
                 <div class="">
-                    <input id="" name="imagem" type="file">
+                    <input id="" name="imagemPerfilUser" type="file">
                 </div>
                 <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
+                    <input class="file-path validate" type="text">
                 </div>
             </div>
-        </form>
+        </form><br>
+        <a onclick="pictureUserPerfil()" class="modal-close modal-action waves-effect waves-green btn right">Enviar</a>
     </div>
 </div>
           
