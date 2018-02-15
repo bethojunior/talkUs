@@ -71,7 +71,7 @@ class DadosController{
             data: {"login" : login , "post" : post , "idUser" : idUser},
             success: function(result){
                 if(result != "false"){
-                    location.reload();
+                    
                 }else {
                     navigator.vibrate([300 , 300 , 200 , 100]);
                     function erroPost() {
