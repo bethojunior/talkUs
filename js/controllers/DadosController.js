@@ -36,7 +36,7 @@ class DadosController{
                             } else {
                                 navigator.vibrate([300 , 300 , 200 , 100]);
                                 function err() {
-                                    location.reload();
+                                    //location.reload();
                                 }
                                 
                                 navigator.notification.alert(
@@ -75,7 +75,7 @@ class DadosController{
                 }else {
                     navigator.vibrate([300 , 300 , 200 , 100]);
                     function erroPost() {
-                        location.reload();
+                        //location.reload();
                     }
                     
                     navigator.notification.alert(
@@ -166,7 +166,7 @@ class DadosController{
                 if(result != false){
 
                     function allRight() {
-                        location.reload();
+                        //location.reload();
                     }
                     
                     navigator.notification.alert(
@@ -178,7 +178,7 @@ class DadosController{
                 } else {
                     navigator.vibrate([300 , 300 , 200 , 100]);
                     function erroDelet() {
-                        location.reload();
+                        //location.reload();
                     }
                     
                     navigator.notification.alert(
@@ -191,7 +191,7 @@ class DadosController{
             },error: function(result){
                 navigator.vibrate([300 , 300 , 200 , 100]);
                 function erroDelet1() {
-                    location.reload();
+                    //location.reload();
                 }
                 
                 navigator.notification.alert(
@@ -218,7 +218,7 @@ class DadosController{
                     document.getElementById("postSaved").style.display = "block";
                 } else {
                     function erroAdd() {
-                        location.reload();
+                        //location.reload();
                     }
                     
                     navigator.notification.alert(

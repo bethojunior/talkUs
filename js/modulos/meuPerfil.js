@@ -1,41 +1,40 @@
 var dados = JSON.parse(localStorage.getItem("result"));
+if(localStorage.getItem("result") === null){
+    window.location.href = "../index.html";
+}
 function loadPerfil(){
     getBestPostsForUser();
     getPosts();
     checkPost();
     getAllUsers();
     getMyAllPosts();
-    let checkId = dados.id;
-    if(checkId != null ){
-
-        var age = dados.dataNascimento;
-        let imgPerfil = dados.imgUser;
-        let src = '';
-        if(imgPerfil === ""){
-            src = "../img/users/default.png";
-        }else {
-            src = "http://betho3.000webhostapp.com/profile/medium/"+imgPerfil;
-        }
-        document.getElementById("idUserPost").value = dados.id;
-        document.getElementById("nameUserPost").value = dados.login;
-
-        var txt = "";
-        txt += 
-        "<div class='row'>"+
-            "<img class='col s4' id='imgPerfil' src='" + src + "'>" + 
-            "<div class='col s4'>"+
-                "<span id='mailPerfil'>" + dados.login + "</span><br>"+
-                //"<span>" + age + "</span><br>"+
-                "<span><i class='material-icons'>local_phone</i><a href='tel:" + dados.phone +"'>" + dados.phone + "</a></span><br>"+
-                "<span>" + dados.login + "</span><br>"+
-                "<span>" + dados.sobre + "</span>"+
-            "</div>"+
-        "</div>";
-        document.getElementById("userPerfil").innerHTML = txt;
-
+    
+    var age = dados.dataNascimento;
+    let imgPerfil = dados.imgUser;
+    let src = '';
+    if(imgPerfil === ""){
+        src = "../img/users/default.png";
     }else {
-        window.location.href = "../index.html";
+        src = "http://betho3.000webhostapp.com/profile/medium/"+imgPerfil;
     }
+    document.getElementById("idUserPost").value = dados.id;
+    document.getElementById("nameUserPost").value = dados.login;
+
+    var txt = "";
+    txt += 
+    "<div class='row'>"+
+        "<img class='col s4' id='imgPerfil' src='" + src + "'>" + 
+        "<div class='col s4'>"+
+            "<span id='mailPerfil'>" + dados.login + "</span><br>"+
+            //"<span>" + age + "</span><br>"+
+            "<span><i class='material-icons'>local_phone</i><a href='tel:" + dados.phone +"'>" + dados.phone + "</a></span><br>"+
+            "<span>" + dados.login + "</span><br>"+
+            "<span>" + dados.sobre + "</span>"+
+        "</div>"+
+    "</div>";
+    document.getElementById("userPerfil").innerHTML = txt;
+
+
 }
 
 //PEGA TODOS MEUS POSTS
