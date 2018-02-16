@@ -71,11 +71,12 @@ class DadosController{
             data: {"login" : login , "post" : post , "idUser" : idUser},
             success: function(result){
                 if(result != "false"){
-                    
+                    dialog.hide();
                 }else {
                     navigator.vibrate([300 , 300 , 200 , 100]);
                     function erroPost() {
                         //location.reload();
+                        dialog.hide();
                     }
                     
                     navigator.notification.alert(

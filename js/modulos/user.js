@@ -10,8 +10,10 @@ document.getElementById("logar").onclick =  function(){
     var login = document.getElementById("login").value;
     var pass = document.getElementById("senha").value;
     if(login && pass != ''){
+        let dialog = new IndeterminateProgressDialog("Aguarde");
         new UserController().login(login , pass ,callback);
         function callback(){
+            dialog.hide();
             window.location.href = "views/telaAdm.html"; 
         }
 

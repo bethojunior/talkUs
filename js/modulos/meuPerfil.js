@@ -96,15 +96,26 @@ function getBestPostsForUser(){
     function callback(result){
         let best = JSON.parse(result);
         let txt = '';
+        
         for(let i in best){
-            
+
+            let img = best[i].src;
+            var path = "";
+
+            if(img === null ){
+                path = "";
+            } else {
+                path = "http://betho3.000webhostapp.com/files/small/"+img;
+            }
+
             let idPost = best[i].id;
             let idUser = best[i].idUser;
             txt += 
-            "<div class='divDados'>"+
+            "<div class='row divDados'>"+
                 "<i class='material-icons right'>bookmark</i>" +
-                "<span class='nameForPost'>"+best[i].name+"</span><br>" + 
-                "<span class='postoForPost'>" + best[i].post +"</span>"+
+                "<span class='col s12 nameForPost'>"+best[i].name+"</span><br>" + 
+                "<span class='col s12 postoForPost'>" + best[i].post +"</span>"+
+                "<div class='col s12 divImgBestPost'><img  src='" + path + "'></div>";
             "</div>";
         }
         document.getElementById("divBestPost").innerHTML = txt;
@@ -184,6 +195,7 @@ function upSobre(){
 
 // ENVIA POST
 function sendPost(){
+    let dialog = new IndeterminateProgressDialog("Aguarde");
     let login = dados.login;
     let post = document.getElementById("myPost").value;
     
@@ -230,6 +242,7 @@ if(document.getElementById("postSaved") != null ){
 
 //SEND FILE FOR POST
 function sendFile(){
+    let dialog = new IndeterminateProgressDialog("Aguarde");
     var formFile = document.getElementById("formFile");
     var formData = new FormData(formFile);
     let e = document.getElementById("formImg1").value;
@@ -240,9 +253,11 @@ function sendFile(){
         new DadosController().sendPostFile(formData , callback);
         function callback(result){
             if(result != false){
+                dialog.hide();
                 formFile.reset();
                 console.log("Imagem enviada com sucesso");
             }else {
+                dialog.hide();
                 formFile.reset();
             }
         }

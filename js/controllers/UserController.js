@@ -26,13 +26,11 @@ class UserController{
     
 
     login(login , pass , callback ){
-        //let dialog = new IndeterminateProgressDialog("Aguarde");
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/controller/login.php",
             method: "GET",
             data: {"login" : login , "pass" : pass},
             success: function(result){
-                //dialog.hide();
                 let dados = JSON.parse(result);
                 if(dados != null){
                     localStorage.setItem("result" , result);
