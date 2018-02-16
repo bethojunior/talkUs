@@ -30,6 +30,7 @@ html{
     width: 100%!important;
     border: solid 1px gray;
     border-radius: 8px;   
+    background-image: url("../img/users/default.png");
 }
 
 #myImage{
@@ -123,8 +124,8 @@ textarea {
     display: none;
 }
 
-.modalChangePicture{
-    width: 90%!important;
+#modalAlterarPhoto{
+    width: 100%!important;
     height: 500px!important;
 }
 

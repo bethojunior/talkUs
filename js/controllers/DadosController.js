@@ -204,7 +204,7 @@ class DadosController{
         });
     }
 
-    postSave(idPost){
+    postSave(idPost , callback){
         localStorage
         let idUser = dados.id;
         $.ajax({
@@ -213,9 +213,8 @@ class DadosController{
             data:{"idPost" : idPost , "idUser" : idUser},
             success: function(result){
                 if(result != false){
+                    callback(result);
                     console.log("Adcionado aos favoritos com sucesso");
-                    document.getElementById("savePost").style.display = "none";
-                    document.getElementById("postSaved").style.display = "block";
                 } else {
                     function erroAdd() {
                         //location.reload();
@@ -239,6 +238,19 @@ class DadosController{
                     'Conexão a internet instavel',                     
                     'OK'                 
                 );
+            }
+        });
+    }
+
+    disabelSavedPost(idPost , callback){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/deleteBestPostFromBestsPost.php",
+            method: "GET",
+            data:{"idPost" : idPost},
+            success: function(data){
+                callback(data);
+            },error: function(data){
+                console.log("erro ajax remove post favorite");
             }
         });
     }
@@ -369,12 +381,4 @@ class DadosController{
         });        
     }
 
-
-
  }
-
-
-
-
-
-

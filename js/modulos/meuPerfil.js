@@ -102,7 +102,7 @@ function getBestPostsForUser(){
             let idUser = best[i].idUser;
             txt += 
             "<div class='divDados'>"+
-                "<i class='material-icons right'>bookmark_border</i>" +
+                "<i class='material-icons right'>bookmark</i>" +
                 "<span class='nameForPost'>"+best[i].name+"</span><br>" + 
                 "<span class='postoForPost'>" + best[i].post +"</span>"+
             "</div>";
@@ -203,9 +203,28 @@ function send(e){
 //SAVE FAVORITE POST
 if(document.getElementById("savePost") != null){
     document.getElementById("savePost").onclick = function(){
+        document.getElementById("savePost").style.display = "none";
+        document.getElementById("postSaved").style.display = "block";
         let idPost = document.getElementById("idPost").value;
-        new DadosController().postSave(idPost);
+        new DadosController().postSave(idPost , callback);
+        function callback(){
+            console.log("ok");
+        }
     };
+}
+
+//delete post save
+if(document.getElementById("postSaved") != null ){
+    document.getElementById("postSaved").onclick = function(){
+        document.getElementById("savePost").style.display = "block";
+        document.getElementById("postSaved").style.display = "none";
+        let idPost = document.getElementById("idPost").value;
+        new DadosController().disabelSavedPost(idPost , callback);
+        function callback(data){
+
+        };
+    };
+
 }
 
 
