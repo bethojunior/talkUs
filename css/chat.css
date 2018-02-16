@@ -61,9 +61,12 @@
     margin-top: 20%!important;
 }
 
-.divImgBestPost{
-    border: solid 1px gray;     
+.divImgBestPost{  
     width: 100%!important;
+}
+
+.divDados{
+    background-color: white!important;
 }
 
 

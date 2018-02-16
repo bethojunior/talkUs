@@ -45,7 +45,7 @@ function getMyAllPosts(){
         var myPost = JSON.parse(result);
         let txt = "";
         for(let i in myPost){
-            var pathImg = "http://betho3.000webhostapp.com/files/medium/";
+            var pathImg = "http://betho3.000webhostapp.com/files/small/";
             let src = "";
             let image = myPost[i].src;
             if(image === null){
@@ -111,11 +111,13 @@ function getBestPostsForUser(){
             let idPost = best[i].id;
             let idUser = best[i].idUser;
             txt += 
-            "<div class='row divDados'>"+
-                "<i class='material-icons right'>bookmark</i>" +
-                "<span class='col s12 nameForPost'>"+best[i].name+"</span><br>" + 
-                "<span class='col s12 postoForPost'>" + best[i].post +"</span>"+
-                "<div class='col s12 divImgBestPost'><img  src='" + path + "'></div>";
+            "<div class=''>"+
+                "<div class='divDados'>"+
+                    "<i class='material-icons right'>bookmark</i>" +
+                    "<span class='nameForPost'>"+best[i].name+"</span><br>" + 
+                    "<span class='postoForPost'>" + best[i].post +"</span>"+
+                    "<div class='divImgBestPost'><img  src='" + path + "'></div>"+
+                "</div>"+
             "</div>";
         }
         document.getElementById("divBestPost").innerHTML = txt;

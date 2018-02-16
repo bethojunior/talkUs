@@ -116,7 +116,7 @@ class DadosController{
                         //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
                         "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
                         "<span class='postoForPost'>" + dados[i].post +"</span>"+
-                        "<div class='col s4'><img width='100%' src='"+src+"'></div>"+
+                        "<div class='col s4'><img src='"+src+"'></div>"+
                         
                     "</div>";
                 }
