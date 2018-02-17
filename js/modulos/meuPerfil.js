@@ -86,7 +86,35 @@ function disableStatusUser(){
 
 //PEGA TODOS OS POSTS
 function getPosts(){
-    new DadosController().getAllPosts();
+    new DadosController().getAllPosts(callback);
+    function callback(result){
+        let dados = JSON.parse(result);
+        let txt = '';
+        
+        for(let i in dados){
+            var pathImg = "http://betho3.000webhostapp.com/files/small/";
+            let src = "";
+            let image = dados[i].src;
+            if(image === null){
+                src = "" ;
+            } else{
+                src = pathImg+image;
+            }
+            let idPost = dados[i].id;
+            let idUser = dados[i].idUser;
+            txt += 
+            "<div onclick='moreInformationPost(" + idPost + " , " + idUser +")' class='divDados'>"+
+                //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
+                "<div class='col s8'>"+
+                    "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
+                    "<span class='postoForPost'>" + dados[i].post +"</span>"+
+                "</div>"+
+                "<div class='col s12'><img src='"+src+"'></div>"+
+                
+            "</div>";
+        }
+        document.getElementById("divAll").innerHTML = txt;
+    }
 }
 
 //PEGA POSTS SALVOS
@@ -287,6 +315,25 @@ function pictureUserPerfil(){
             console.log("Erro");
         }
     }
+}
+
+
+function moreInformationPost(idPost , idUser){
+    var logado = dados.id;
+    //CONTROLE DE PERMISSÃO QUE IDENTIFICA QUEM PODE APAGAR OU EDITAR POST
+    if(logado != idUser ){
+        document.getElementById("optionModalPost").style.display = "none";
+    } else {
+        document.getElementById("optionModalPost").style.display = "block";
+    }
+    new DadosController().getDataPost(idPost);
+    statusPost();
+
+}
+
+function deletePost(){
+    let id = document.getElementById("idPost").value;
+    new DadosController().deleteDataPost(id);
 }
 
 //LOGOUT // STATUS OFF

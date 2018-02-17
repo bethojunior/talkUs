@@ -92,35 +92,13 @@ class DadosController{
         });
     }
 
-    getAllPosts(){
+    getAllPosts(callback){
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/controller/getAllPosts.php",
             method: "POST",
             success: function(result){
-                var dados = JSON.parse(result);
-                let txt = '';
-                
-                for(let i in dados){
-                    var pathImg = "http://betho3.000webhostapp.com/files/medium/";
-                    let src = "";
-                    let image = dados[i].src;
-                    if(image === null){
-                        src = "" ;
-                    } else{
-                        src = pathImg+image;
-                    }
-                    let idPost = dados[i].id;
-                    let idUser = dados[i].idUser;
-                    txt += 
-                    "<div onclick='moreInformationPost(" + idPost + " , " + idUser +")' class='divDados'>"+
-                        //"<i id='moreInformationPost' class='material-icons tiny'>more_vert</i><br>"+
-                        "<span class='nameForPost'>"+dados[i].name+"</span><br>" + 
-                        "<span class='postoForPost'>" + dados[i].post +"</span>"+
-                        "<div class='col s4'><img src='"+src+"'></div>"+
-                        
-                    "</div>";
-                }
-                document.getElementById("divAll").innerHTML = txt;
+                callback(result);
+
             },error: function(result){
 
             }
@@ -136,6 +114,14 @@ class DadosController{
                 var dados = JSON.parse(result);
                 var postSelect = "";
                 for(let i in dados){
+                    let src = "";
+                    let path = "http://betho3.000webhostapp.com/files/small/";
+                    let image = dados[i].src;
+                    if(image === null){
+                        src = "";
+                    } else {
+                        src = path+image;
+                    }
                     if(dados[i]['id'] == idVoucher){
                         postSelect = dados[i];
                         $('#modalOpt').modal('open');
@@ -143,6 +129,7 @@ class DadosController{
                         document.getElementById("loginPost").value = postSelect.login;
                         document.getElementById("namePostModal").innerHTML = postSelect.name;
                         document.getElementById("postPostModal").innerHTML = postSelect.post;
+                        document.getElementById("imagemModalPost").src = src;
                         document.getElementById("dataPostModal").innerHTML = postSelect.data;
 
                         //MUDA ICONE DE ADD OU NÃO POST AOS FAVORITOS
