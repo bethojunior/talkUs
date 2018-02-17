@@ -98,7 +98,6 @@ class DadosController{
             method: "POST",
             success: function(result){
                 callback(result);
-
             },error: function(result){
 
             }
@@ -111,7 +110,7 @@ class DadosController{
             url:"http://betho3.000webhostapp.com/mvc/controller/getAllPosts.php",
             method: "POST",
             success: function(result){
-                var dados = JSON.parse(result);
+                let dados = JSON.parse(result);
                 var postSelect = "";
                 for(let i in dados){
                     let src = "";
@@ -192,8 +191,7 @@ class DadosController{
         });
     }
 
-    postSave(idPost , callback){
-        localStorage
+    postSave(idPost){
         let idUser = dados.id;
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/dao/insertBestPosts.php",
@@ -201,17 +199,16 @@ class DadosController{
             data:{"idPost" : idPost , "idUser" : idUser},
             success: function(result){
                 if(result != false){
-                    callback(result);
                     console.log("Adcionado aos favoritos com sucesso");
                 } else {
                     function erroAdd() {
-                        //location.reload();
+                        
                     }
                     
                     navigator.notification.alert(
                         'Erro', 
                         erroAdd,        
-                        'Conexão a internet instavel',                     
+                        'Conexão a internet instavel1',                     
                         'OK'                 
                     );
                 }
@@ -223,7 +220,7 @@ class DadosController{
                 navigator.notification.alert(
                     'Erro', 
                     erroAdd,        
-                    'Conexão a internet instavel',                     
+                    'Conexão a internet instavel2',                     
                     'OK'                 
                 );
             }

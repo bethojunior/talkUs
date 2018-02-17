@@ -90,7 +90,6 @@ function getPosts(){
     function callback(result){
         let dados = JSON.parse(result);
         let txt = '';
-        
         for(let i in dados){
             var pathImg = "http://betho3.000webhostapp.com/files/small/";
             let src = "";
@@ -114,7 +113,7 @@ function getPosts(){
             "</div>";
         }
         document.getElementById("divAll").innerHTML = txt;
-    }
+    };
 }
 
 //PEGA POSTS SALVOS
@@ -248,10 +247,7 @@ if(document.getElementById("savePost") != null){
         document.getElementById("savePost").style.display = "none";
         document.getElementById("postSaved").style.display = "block";
         let idPost = document.getElementById("idPost").value;
-        new DadosController().postSave(idPost , callback);
-        function callback(){
-            console.log("ok");
-        }
+        new DadosController().postSave(idPost);
     };
 }
 
@@ -261,10 +257,7 @@ if(document.getElementById("postSaved") != null ){
         document.getElementById("savePost").style.display = "block";
         document.getElementById("postSaved").style.display = "none";
         let idPost = document.getElementById("idPost").value;
-        new DadosController().disabelSavedPost(idPost , callback);
-        function callback(data){
-
-        };
+        new DadosController().disabelSavedPost(idPost);
     };
 
 }
@@ -318,6 +311,8 @@ function pictureUserPerfil(){
 }
 
 
+
+
 function moreInformationPost(idPost , idUser){
     var logado = dados.id;
     //CONTROLE DE PERMISSÃO QUE IDENTIFICA QUEM PODE APAGAR OU EDITAR POST
@@ -326,7 +321,24 @@ function moreInformationPost(idPost , idUser){
     } else {
         document.getElementById("optionModalPost").style.display = "block";
     }
-    new DadosController().getDataPost(idPost);
+    new DadosController().getDataPost(idPost , callback);
+    function callback(result){
+        let dados = JSON.parse(result);
+        let postSelect = "";
+        for(let i in dados){
+            if(dados[i]['id'] == idVoucher){
+                postSelect = dados[i];
+                $('#modalOpt').modal('open');
+                document.getElementById("idPost").value = postSelect.id;
+                document.getElementById("loginPost").value = postSelect.login;
+                document.getElementById("namePostModal").innerHTML = postSelect.name;
+                document.getElementById("postPostModal").innerHTML = postSelect.post;
+                document.getElementById("dataPostModal").innerHTML = postSelect.data;
+            }
+            let idPost = postSelect.id;
+            localStorage.setItem("idPost" , idPost);
+        }
+    }
     statusPost();
 
 }
@@ -335,6 +347,8 @@ function deletePost(){
     let id = document.getElementById("idPost").value;
     new DadosController().deleteDataPost(id);
 }
+
+
 
 //LOGOUT // STATUS OFF
 function getOutApp(){
