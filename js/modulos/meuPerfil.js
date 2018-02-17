@@ -186,7 +186,7 @@ function getAllUsers(){
                 line = "offline"
             }
             showDataUser += 
-            "<div id='startChat' class='row divUserChat'>"+
+            "<div onclick='openChat(" + id + ")' id='startChat' class='row divUserChat'>"+
                 "<div class='col s12 " + line + " '>" + users[i].status +"</div>"+
                 "<div class='col s2 divPictureUser'><img id='pictureUser' src='" + path + "'></div>"+
                 "<div class='col s10'><span class='nameUserChat col s12'>" + users[i].name + "</span></div>"+
@@ -198,6 +198,11 @@ function getAllUsers(){
     };
 
 
+}
+
+function openChat(idUserChat){
+    localStorage.setItem("idUserChat" , idUserChat);
+    window.location.href = "chat.html";
 }
 
 //CHECA STATUS DO POST (SALVO OU NÃO )

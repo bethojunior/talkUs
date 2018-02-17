@@ -14,4 +14,18 @@ class Crud{
         });
     }
 
+    loadDataChat(){
+        $.ajax({
+            url: "",
+            method: "POST",
+            data:{},
+            success: function(result){
+                new DadosController().dataChat();
+                loadDataChat();
+            },error:function(result){
+                console.log("Erro crud");
+            }
+        })
+    }
+
 }

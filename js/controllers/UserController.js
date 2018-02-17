@@ -120,6 +120,19 @@ class UserController{
         });
     }
 
+    getUserForId(id , callback){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/controller/getUserById.php",
+            method: "GET",
+            data: {"id" : id},
+            success: function(){
+                callback(result);
+            }, error: function(result){
+                alert("Erro ajax getUserForLogin");
+            }
+        });
+    }
+
 
 
 }
