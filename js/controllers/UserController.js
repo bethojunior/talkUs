@@ -125,8 +125,9 @@ class UserController{
             url: "http://betho3.000webhostapp.com/mvc/controller/getUserById.php",
             method: "GET",
             data: {"id" : id},
-            success: function(){
-                callback(result);
+            success: function(result){
+                let dataUser2 = JSON.parse(result);
+                callback(dataUser2);
             }, error: function(result){
                 alert("Erro ajax getUserForLogin");
             }
