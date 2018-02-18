@@ -74,8 +74,8 @@ function loadChat(){
             }
             txt += 
             "<div class='row divChat " + classDiv + "'>"+
-                "<label class='col s12 right'>" + dados[i].hora + "</label>"+
                 "<div class='col s12'>" + dados[i].mensagem + "</div>"+
+                "<label class='col s12 right'>" + dados[i].hora + "</label>"+
             "</div>";
         }
         document.getElementById("dataMessage").innerHTML = txt;
