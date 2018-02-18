@@ -307,7 +307,6 @@ function pictureUserPerfil(){
     function callback(result){
         //console.log(result);
         if(result != false){
-            alert("ok");
             console.log("ok");
         }else {
             console.log("Erro");

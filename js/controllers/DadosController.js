@@ -36,17 +36,18 @@ class DadosController{
                             if(dados != null){
                                 loadPerfil();
                             } else {
-                                navigator.vibrate([300 , 300 , 200 , 100]);
-                                function err() {
-                                    //location.reload();
-                                }
+                                console.log("ERRO UPDATESOBRE");
+                                // navigator.vibrate([300 , 300 , 200 , 100]);
+                                // function err() {
+                                //     //location.reload();
+                                // }
                                 
-                                navigator.notification.alert(
-                                    'Erro ao atualizar página.', 
-                                    err,        
-                                    'Conexão a internet instavel',                     
-                                    'OK'                 
-                                );
+                                // navigator.notification.alert(
+                                //     'Erro ao atualizar página.', 
+                                //     err,        
+                                //     'Conexão a internet instavel',                     
+                                //     'OK'                 
+                                // );
                             }
                         }
                     });
@@ -60,7 +61,7 @@ class DadosController{
                     'OK'                 
                 );
             }, error: function(result){
-                alert("Desculpe , houve um erro");
+                //alert("Desculpe , houve um erro");
             }
         });
     }
@@ -75,18 +76,19 @@ class DadosController{
                 if(result != "false"){
                     dialog.hide();
                 }else {
-                    navigator.vibrate([300 , 300 , 200 , 100]);
-                    function erroPost() {
-                        //location.reload();
-                        dialog.hide();
-                    }
+                    console.log("ERRO SENDDATAPOST");
+                    // navigator.vibrate([300 , 300 , 200 , 100]);
+                    // function erroPost() {
+                    //     //location.reload();
+                    //     dialog.hide();
+                    // }
                     
-                    navigator.notification.alert(
-                        'Erro ao enviar post.', 
-                        erroPost,        
-                        'Conexão a internet instavel',                     
-                        'OK'                 
-                    );
+                    // navigator.notification.alert(
+                    //     'Erro ao enviar post.', 
+                    //     erroPost,        
+                    //     'Conexão a internet instavel',                     
+                    //     'OK'                 
+                    // );
                 }
             }, error: function(result){
                 console.log("erro Ajax");
@@ -154,41 +156,41 @@ class DadosController{
             success: function(result){
                 if(result != false){
 
-                    function allRight() {
-                        //location.reload();
-                    }
+                    // function allRight() {
+                    //     //location.reload();
+                    // }
                     
-                    navigator.notification.alert(
-                        'Apagado com sucesso', 
-                        allRight,        
-                        ';D',                     
-                        'OK'                 
-                    );
+                    // navigator.notification.alert(
+                    //     'Apagado com sucesso', 
+                    //     allRight,        
+                    //     ';D',                     
+                    //     'OK'                 
+                    // );
                 } else {
-                    navigator.vibrate([300 , 300 , 200 , 100]);
-                    function erroDelet() {
-                        //location.reload();
-                    }
+                    // navigator.vibrate([300 , 300 , 200 , 100]);
+                    // function erroDelet() {
+                    //     //location.reload();
+                    // }
                     
-                    navigator.notification.alert(
-                        'Erro ao apagar post', 
-                        erroDelet,        
-                        'Conexão a internet instavel',                     
-                        'OK'                 
-                    );
+                    // navigator.notification.alert(
+                    //     'Erro ao apagar post', 
+                    //     erroDelet,        
+                    //     'Conexão a internet instavel',                     
+                    //     'OK'                 
+                    // );
                 }
             },error: function(result){
-                navigator.vibrate([300 , 300 , 200 , 100]);
-                function erroDelet1() {
-                    //location.reload();
-                }
+                // navigator.vibrate([300 , 300 , 200 , 100]);
+                // function erroDelet1() {
+                //     //location.reload();
+                // }
                 
-                navigator.notification.alert(
-                    'Erro ao apagar post', 
-                    erroDelet1,        
-                    'Conexão a internet instavel',                     
-                    'OK'                 
-                );
+                // navigator.notification.alert(
+                //     'Erro ao apagar post', 
+                //     erroDelet1,        
+                //     'Conexão a internet instavel',                     
+                //     'OK'                 
+                // );
             }
         });
     }
@@ -203,28 +205,28 @@ class DadosController{
                 if(result != false){
                     console.log("Adcionado aos favoritos com sucesso");
                 } else {
-                    function erroAdd() {
+                    // function erroAdd() {
                         
-                    }
+                    // }
                     
-                    navigator.notification.alert(
-                        'Erro', 
-                        erroAdd,        
-                        'Conexão a internet instavel1',                     
-                        'OK'                 
-                    );
+                    // navigator.notification.alert(
+                    //     'Erro', 
+                    //     erroAdd,        
+                    //     'Conexão a internet instavel1',                     
+                    //     'OK'                 
+                    // );
                 }
             }, error: function(result){
-                function erroAdd() {
-                    location.reload();
-                }
+                // function erroAdd() {
+                //     location.reload();
+                // }
                 
-                navigator.notification.alert(
-                    'Erro', 
-                    erroAdd,        
-                    'Conexão a internet instavel2',                     
-                    'OK'                 
-                );
+                // navigator.notification.alert(
+                //     'Erro', 
+                //     erroAdd,        
+                //     'Conexão a internet instavel2',                     
+                //     'OK'                 
+                // );
             }
         });
     }
@@ -265,7 +267,7 @@ class DadosController{
             success: function(result){
                 callback(result);
             }, error: function(result){
-                alert("ERRO AO CHECKAR POST SALVO/NOTSALVO");
+                //alert("ERRO AO CHECKAR POST SALVO/NOTSALVO");
             }
         });
     }
