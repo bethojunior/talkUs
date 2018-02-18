@@ -1,3 +1,8 @@
+//DADOS DO USUÁRIO SELECIONADO
+var dadosChat = localStorage.getItem("idUserChat");
+//DADOS DO LOGADO
+var dados = JSON.parse(localStorage.getItem("result"));
+
 class Crud{
 
     updateData(){
@@ -14,11 +19,11 @@ class Crud{
         });
     }
 
-    loadDataChat(){
+    loadDataChat(idUser1 , idUser2 ){
         $.ajax({
-            url: "",
+            url: "http://betho3.000webhostapp.com/mvc/controller/getAllMessagesChat.php",
             method: "POST",
-            data:{},
+            data:{"idUser" : idUser1 , "idUser2" : idUser2 },
             success: function(result){
                 new DadosController().dataChat();
                 loadDataChat();

@@ -70,8 +70,10 @@
 }
 
 .divPerfilChat{
-    border: 1px gray solid;
+    background-color: white;
     border-radius: 10px;
+    padding: 2%!important;
+    margin: 2%!important;
 }
 
 .namePerfil {

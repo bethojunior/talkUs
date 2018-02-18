@@ -129,7 +129,7 @@ class UserController{
                 let dataUser2 = JSON.parse(result);
                 callback(dataUser2);
             }, error: function(result){
-                alert("Erro ajax getUserForLogin");
+                //alert("Erro ajax getUserForLogin");
             }
         });
     }

@@ -366,4 +366,32 @@ class DadosController{
         });        
     }
 
- }
+    sendMessage(idUser1 , idUser2 , mensagem , callback) {
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/insertMessageChat.php",
+            method:"POST",
+            data:{"idUser1" : idUser1 , "idUser2" : idUser2 , "mensagem" : mensagem},
+            success: function(data){
+                callback(data);
+            },error:function(data){
+                console.log("ERRO AJAX SEND MESSAGE CHAT");
+            }
+        });
+    }
+
+    //PEGA MENSAGENS DO CHAT
+    dataChat(idUser1 , idUser2){
+        $.ajax({
+            url:"http://betho3.000webhostapp.com/mvc/controller/getAllMessagesChat.php",
+            method: "POST",
+            data:{"idUser1" : idUser1 , "idUser2" : idUser2},
+            success: function(result){
+                let dados = JSON.parse(result);
+                console.log("ok");
+            },error: function(result){
+                console.log("ERROR");
+            }
+        });
+    }
+
+}
