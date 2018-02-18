@@ -329,6 +329,32 @@ class DadosController{
         
     }
 
+    sendPostFileChat(formData , callback){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/uploadFileChat.php",
+            type: 'POST',
+            data: formData, 
+            success: function (data) {
+                callback(data)
+            },error: function(data){
+                //alert("erro");
+                callback(data);
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function() {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function () {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+            return myXhr;
+            }
+        });
+    }
+
     statusOffline(idUser , callback){
         let status = "offline";
         $.ajax({
@@ -371,6 +397,7 @@ class DadosController{
     }
 
     sendMessage(idUser1 , idUser2 , mensagem , callback) {
+        let src = "";
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/dao/insertMessageChat.php",
             method:"POST",
