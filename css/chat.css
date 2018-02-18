@@ -1,3 +1,11 @@
+.btnMenu {
+    background-color: #005D7A!important;
+}
+
+#navPerfil{
+    top: 0!important;
+}
+
 #usersChat {
     margin-top: 2%;
 }
@@ -100,7 +108,7 @@
     margin: 2%!important;
     padding: 2%!important;
     text-align: right!important;
-    background-color: #6FC2EA!important;
+    background-color: #83c4a3!important;
     border-radius: 7px 7px 0px 7px;
 }
 

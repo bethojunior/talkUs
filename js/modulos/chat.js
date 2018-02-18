@@ -90,6 +90,7 @@ function sendMessageChat(){
     function callback(data){
         if(data != false){
             console.log("ok");
+            document.getElementById("messageChat").value = "";
         }else {
             console.log("Error");
         }
