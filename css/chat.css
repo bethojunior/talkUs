@@ -81,6 +81,16 @@
     font-weight: bold;
 }
 
+.msgLeft{
+    text-align: left!important;
+    background-color: white!important;
+}
+
+.msgRight{
+    text-align: right!important;
+    background-color: #6FC2EA!important;
+}
+
 
 
 

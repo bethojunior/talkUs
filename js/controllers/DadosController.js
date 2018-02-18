@@ -1,4 +1,6 @@
 var dados = JSON.parse(localStorage.getItem("result"));
+//DADOS DO USUÁRIO SELECIONADO
+var dadosChat = localStorage.getItem("idUserChat");
 
 class DadosController{
 
@@ -380,14 +382,16 @@ class DadosController{
     }
 
     //PEGA MENSAGENS DO CHAT
-    dataChat(idUser1 , idUser2){
+    
+    dataChat(callback){
+        let idUser1 = dados.id;
+        let idUser2 = dadosChat;
         $.ajax({
             url:"http://betho3.000webhostapp.com/mvc/controller/getAllMessagesChat.php",
             method: "POST",
             data:{"idUser1" : idUser1 , "idUser2" : idUser2},
             success: function(result){
-                let dados = JSON.parse(result);
-                console.log("ok");
+                callback(result);
             },error: function(result){
                 console.log("ERROR");
             }

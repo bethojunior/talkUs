@@ -2,9 +2,11 @@
 var dadosChat = localStorage.getItem("idUserChat");
 //DADOS DO LOGADO
 var dados = JSON.parse(localStorage.getItem("result"));
+var idUserLogado = dados.id;
 
 function loadDataChat(){
     atualizaMensagens();
+    loadChat();
 
     let id = dadosChat;
     new UserController().getUserForId(id , callback);
@@ -56,11 +58,28 @@ function atualizaMensagens(){
 
 
 function loadChat(){
-    let idUser1 = dados.id;
-    let idUser2 = dadosChat;
-    alert(idUser1);
-    alert(idUser2);
-    new DadosController().dataChat(idUser1 , idUser2);
+    new DadosController().dataChat(callback);
+    function callback(result){
+        let dados = JSON.parse(result);
+        let txt = "";
+        for(let i in dados){
+            let src = "";
+            let path = "";
+            let idMensagem = dados[i].idMensagem;
+            let classDiv = "";
+            if(idMensagem != idUserLogado){
+                classDiv = "msgLeft";
+            }else {
+                classDiv = "msgRight";
+            }
+            txt += 
+            "<div class='row divChat " + classDiv + "'>"+
+                "<label class='col s12 right'>" + dados[i].hora + "</label>"+
+                "<div class='col s12'>" + dados[i].mensagem + "</div>"+
+            "</div>";
+        }
+        document.getElementById("dataMessage").innerHTML = txt;
+    }
 }
 
 function sendMessageChat(){
