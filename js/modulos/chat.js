@@ -113,8 +113,8 @@ function sendMessageChat(){
 //SEND FILE FOR POST
 function sendFileChat(){
     let dialog = new IndeterminateProgressDialog("Aguarde");
-    var formFile = document.getElementById("formFile");
-    var formData = new FormData(formFile);
+    let formFile = document.getElementById("formFile");
+    let formData = new FormData(formFile);
     let e = document.getElementById("formImg1").value;
     let e1 = document.getElementById("formImg2").value;
     let title = document.getElementById("titlePostPic").value
@@ -141,4 +141,37 @@ function sendFileChat(){
         document.getElementById("titlePostPic").className = "titlePostPic";
     }
 
+}
+
+function sendFileChatPhoto() {
+    let dialog = new IndeterminateProgressDialog("Aguarde");
+    let formFile = document.getElementById("formFilePhoto");
+    let formData = new FormData(formFile);
+    var e = document.getElementById("srcPhoto").value;
+    let title = document.getElementById("titlePostPic").value
+    if(title == ''){
+        title = "...";
+    }
+
+    if(e != "" && title != ""){
+        new DadosController().sendPostFileChat(formData , callback);
+        function callback(result){
+            if(result != false){
+                dialog.hide();
+                formFile.reset();
+                console.log("Imagem enviada com sucesso");
+                alert("ok");
+            }else {
+                dialog.hide();
+                formFile.reset();
+                alert("erro1");
+            }
+        }
+    }
+    else {
+        alert("erro2");
+        console.log(result);
+        navigator.vibrate([300 , 300 , 200 , 100]);
+        document.getElementById("titlePostPic").className = "titlePostPic";
+    }
 }

@@ -337,7 +337,6 @@ class DadosController{
             success: function (data) {
                 callback(data)
             },error: function(data){
-                //alert("erro");
                 callback(data);
             },
             cache: false,
@@ -355,6 +354,7 @@ class DadosController{
         });
     }
 
+    
     statusOffline(idUser , callback){
         let status = "offline";
         $.ajax({

@@ -105,11 +105,27 @@
             </div>
         </div>
 
+        <!--ENVIA FOTO PARA CHAT -->    
+        <div id="sendFilePhoto" class="modal bottom-sheet" >
+            <div class="modal-content">
+                <form id="formFilePhoto" enctype="multipart/form-data">
+                    <img class="col s12" id="myImage">
+                    <input type="file" name="imagem" id="srcPhoto">
+                    <input type="hidden" id="idUser1" name="idUser1">
+                    <input type="hidden" id="idUser2" name="idUser2">
+                    <input id="titlePostPic" placeholder="Titulo" name="mensagem">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a onclick="sendFileChatPhoto()" class="col s12 modal-action modal-close waves-effect waves-green btn ">Enviar</a>
+            </div>
+        </div>
+
 
         <script src="../Materialize/js/materialize.js"></script>
         <script src="../js/modulos/chat.js"></script>
+        <script src="../js/modulos/cameraChat.js"></script>
         <script src="../js/modulos/meuPerfil.js"></script>
-        <script src="../js/modulos/camera.js"></script>
         <script>
             $(".button-collapse").sideNav();
         </script>

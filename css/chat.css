@@ -1,3 +1,7 @@
+/* #srcPhoto{
+    opacity: 0!important;
+    position: absolute!important;
+} */
 .btnMenu {
     background-color: #005D7A!important;
 }
@@ -111,6 +115,12 @@
     background-color: #83c4a3!important;
     border-radius: 7px 7px 0px 7px;
 }
+
+#srcPhoto{
+    position: absolute!important;
+    top: 0!important;
+}
+
 
 
 
