@@ -354,6 +354,31 @@ class DadosController{
         });
     }
 
+    sendPostFileChatPhoto(formData2 , callback){
+        $.ajax({
+            url: "http://betho3.000webhostapp.com/mvc/dao/uploadPhotoChat.php",
+            type: 'POST',
+            data: formData2, 
+            success: function (data) {
+                callback(data)
+            },error: function(data){
+                callback(data);
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function() {  // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function () {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+            return myXhr;
+            }
+        });
+    }
+
     
     statusOffline(idUser , callback){
         let status = "offline";

@@ -145,8 +145,8 @@ function sendFileChat(){
 
 function sendFileChatPhoto() {
     let dialog = new IndeterminateProgressDialog("Aguarde");
-    let formFile = document.getElementById("formFilePhoto");
-    let formData = new FormData(formFile);
+    let formFile1 = document.getElementById("sendFilePhoto");
+    let formData2 = new FormData(formFile1);
     var e = document.getElementById("srcPhoto").value;
     let title = document.getElementById("titlePostPic").value
     if(title == ''){
@@ -154,7 +154,7 @@ function sendFileChatPhoto() {
     }
 
     if(e != "" && title != ""){
-        new DadosController().sendPostFileChat(formData , callback);
+        new DadosController().sendPostFileChatPhoto(formData2 , callback);
         function callback(result){
             if(result != false){
                 dialog.hide();
