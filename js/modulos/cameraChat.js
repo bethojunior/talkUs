@@ -18,8 +18,7 @@ var app = {
             $('#sendFilePhoto').modal('open');
             var image  = document.getElementById("myImage");
             image.src = imageURI;
-            let src = document.getElementById("srcPhoto");
-            src = imageURI;
+            let src = document.getElementById("srcPhoto").value(imageURI);
         }
 
         function onFail(message) {

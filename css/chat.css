@@ -24,14 +24,11 @@
     border-radius: 0px 0px 10px 10px;
 }
 
-.divPictureUser {
-    border-radius: 8px!important;
-}
-
 .divPictureUser img {
     border: solid 1px gray;
-    border-radius: 8px;
+    border-radius: 80px!important;
     width: 100%!important;
+    height: 40px!important;
 }
 
 #statusUser {
