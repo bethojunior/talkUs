@@ -151,7 +151,6 @@ function getBestPostsForUser(){
     }
 }
         
-
 //CRUD ATUALIZA POSTS A CADA 1 SEGUNDO
 function checkPost(){
     setTimeout(function(){
@@ -199,7 +198,7 @@ function getAllUsers(){
 
 
 }
-
+//OPEN CHAT
 function openChat(idUserChat){
     localStorage.setItem("idUserChat" , idUserChat);
     window.location.href = "chat.html";
@@ -225,7 +224,6 @@ function upSobre(){
     let id = dados.id;
     new DadosController().updateSobre(id , sobre);
 }
-
 
 // ENVIA POST
 function sendPost(){
@@ -267,7 +265,6 @@ if(document.getElementById("postSaved") != null ){
 
 }
 
-
 //SEND FILE FOR POST
 function sendFile(){
     let dialog = new IndeterminateProgressDialog("Aguarde");
@@ -276,7 +273,7 @@ function sendFile(){
     let e = document.getElementById("formImg1").value;
     let e1 = document.getElementById("formImg2").value;
     let title = document.getElementById("titlePostPic").value;
-    if(title == ""){
+    if(title === ""){
         title.value = "...";
     }
     if(e != "" && e1 != "" && title != ""){
@@ -315,10 +312,7 @@ function pictureUserPerfil(){
         }
     }
 }
-
-
-
-
+//////////GET ALL INFORMARTION OF POST
 function moreInformationPost(idPost , idUser){
     var logado = dados.id;
     //CONTROLE DE PERMISSÃO QUE IDENTIFICA QUEM PODE APAGAR OU EDITAR POST
@@ -348,7 +342,7 @@ function moreInformationPost(idPost , idUser){
     statusPost();
 
 }
-
+/////DELET POST FROM DIV ALL POSTS
 function deletePost(){
     $('#optionModalPost').modal('close');
     let id = document.getElementById("idPost").value;
@@ -362,8 +356,6 @@ function deletePost(){
         }
     }
 }
-
-
 
 //LOGOUT // STATUS OFF
 function getOutApp(){
