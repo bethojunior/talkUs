@@ -348,8 +348,17 @@ function moreInformationPost(idPost , idUser){
 }
 
 function deletePost(){
+    $('#optionModalPost').modal('close');
     let id = document.getElementById("idPost").value;
-    new DadosController().deleteDataPost(id);
+    new DadosController().deleteDataPost(id , callback);
+    function callback(result){
+        if(result != false){
+            $('#optionModalPost').modal('close');
+        }else {
+            $('#optionModalPost').modal('close');
+            console.log("ERRO AO DELETAR POST");
+        }
+    }
 }
 
 
