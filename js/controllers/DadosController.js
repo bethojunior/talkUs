@@ -37,17 +37,6 @@ class DadosController{
                                 loadPerfil();
                             } else {
                                 console.log("ERRO UPDATESOBRE");
-                                // navigator.vibrate([300 , 300 , 200 , 100]);
-                                // function err() {
-                                //     //location.reload();
-                                // }
-                                
-                                // navigator.notification.alert(
-                                //     'Erro ao atualizar página.', 
-                                //     err,        
-                                //     'Conexão a internet instavel',                     
-                                //     'OK'                 
-                                // );
                             }
                         }
                     });
@@ -77,18 +66,6 @@ class DadosController{
                     dialog.hide();
                 }else {
                     console.log("ERRO SENDDATAPOST");
-                    // navigator.vibrate([300 , 300 , 200 , 100]);
-                    // function erroPost() {
-                    //     //location.reload();
-                    //     dialog.hide();
-                    // }
-                    
-                    // navigator.notification.alert(
-                    //     'Erro ao enviar post.', 
-                    //     erroPost,        
-                    //     'Conexão a internet instavel',                     
-                    //     'OK'                 
-                    // );
                 }
             }, error: function(result){
                 console.log("erro Ajax");
@@ -155,42 +132,9 @@ class DadosController{
             data: {"id" : id},
             success: function(result){
                 if(result != false){
-
-                    // function allRight() {
-                    //     //location.reload();
-                    // }
-                    
-                    // navigator.notification.alert(
-                    //     'Apagado com sucesso', 
-                    //     allRight,        
-                    //     ';D',                     
-                    //     'OK'                 
-                    // );
                 } else {
-                    // navigator.vibrate([300 , 300 , 200 , 100]);
-                    // function erroDelet() {
-                    //     //location.reload();
-                    // }
-                    
-                    // navigator.notification.alert(
-                    //     'Erro ao apagar post', 
-                    //     erroDelet,        
-                    //     'Conexão a internet instavel',                     
-                    //     'OK'                 
-                    // );
                 }
             },error: function(result){
-                // navigator.vibrate([300 , 300 , 200 , 100]);
-                // function erroDelet1() {
-                //     //location.reload();
-                // }
-                
-                // navigator.notification.alert(
-                //     'Erro ao apagar post', 
-                //     erroDelet1,        
-                //     'Conexão a internet instavel',                     
-                //     'OK'                 
-                // );
             }
         });
     }
@@ -205,28 +149,8 @@ class DadosController{
                 if(result != false){
                     console.log("Adcionado aos favoritos com sucesso");
                 } else {
-                    // function erroAdd() {
-                        
-                    // }
-                    
-                    // navigator.notification.alert(
-                    //     'Erro', 
-                    //     erroAdd,        
-                    //     'Conexão a internet instavel1',                     
-                    //     'OK'                 
-                    // );
                 }
             }, error: function(result){
-                // function erroAdd() {
-                //     location.reload();
-                // }
-                
-                // navigator.notification.alert(
-                //     'Erro', 
-                //     erroAdd,        
-                //     'Conexão a internet instavel2',                     
-                //     'OK'                 
-                // );
             }
         });
     }
