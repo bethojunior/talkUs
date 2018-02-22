@@ -125,15 +125,13 @@ class DadosController{
         });
     }
 
-    deleteDataPost(id){
+    deleteDataPost(id , callback){
         $.ajax({
             url: "http://betho3.000webhostapp.com/mvc/dao/deletePost.php",
             method: "POST",
             data: {"id" : id},
             success: function(result){
-                if(result != false){
-                } else {
-                }
+                callback(result);
             },error: function(result){
             }
         });
