@@ -275,8 +275,10 @@ function sendFile(){
     var formData = new FormData(formFile);
     let e = document.getElementById("formImg1").value;
     let e1 = document.getElementById("formImg2").value;
-    let title = document.getElementById("titlePostPic").value
-    
+    let title = document.getElementById("titlePostPic").value;
+    if(title == ""){
+        title.value = "...";
+    }
     if(e != "" && e1 != "" && title != ""){
         new DadosController().sendPostFile(formData , callback);
         function callback(result){
