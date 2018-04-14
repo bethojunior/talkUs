@@ -1,8 +1,9 @@
+const PRODUCTION = "http://bethojunior.fabrica704.com.br/mvc/";
 class UserController{
 
     getAll(showUser){
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/controller/getAllUsers.php",
+            url:PRODUCTION+"controller/getAllUsers.php",
             success: function(result){
                 var users = JSON.parse(result);
                 showUser(users);
@@ -27,8 +28,8 @@ class UserController{
 
     login(login , pass , callback ){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/login.php",
-            method: "GET",
+            url: PRODUCTION+"controller/login.php",
+            method: "POST",
             data: {"login" : login , "pass" : pass},
             success: function(result){
                 let dados = JSON.parse(result);
@@ -55,7 +56,7 @@ class UserController{
 
     newUser(login , pass , name , phone , data){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/newUser.php",
+            url: PRODUCTION+"dao/newUser.php",
             method: "POST",
             data: {"login" : login , "pass" : pass ,"name" : name , "phone" : phone , "data" : data},
             success: function(result){
@@ -95,7 +96,7 @@ class UserController{
         let login = user;
         //alert(login);
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/controller/checkLoginCad.php",
+            url:PRODUCTION+"controller/checkLoginCad.php",
             method: "GET",
             data: {"login" : login},
             success: function(result){
@@ -122,7 +123,7 @@ class UserController{
 
     getUserForId(id , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/getUserById.php",
+            url: PRODUCTION+"controller/getUserById.php",
             method: "GET",
             data: {"id" : id},
             success: function(result){

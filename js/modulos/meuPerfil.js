@@ -1,3 +1,5 @@
+const PRODUCTION = "http://bethojunior.fabrica704.com.br/mvc/";
+
 var dados = JSON.parse(localStorage.getItem("result"));
 if(localStorage.getItem("result") === null){
     window.location.href = "../index.html";
@@ -15,7 +17,7 @@ function loadPerfil(){
     if(imgPerfil === ""){
         src = "../img/users/default.png";
     }else {
-        src = "http://betho3.000webhostapp.com/profile/medium/"+imgPerfil;
+        //src = "http://betho3.000webhostapp.com/profile/medium/"+imgPerfil;
     }
     document.getElementById("idUserPost").value = dados.id;
     document.getElementById("nameUserPost").value = dados.login;
@@ -45,7 +47,7 @@ function getMyAllPosts(){
         var myPost = JSON.parse(result);
         let txt = "";
         for(let i in myPost){
-            var pathImg = "http://betho3.000webhostapp.com/files/small/";
+            var pathImg = "http://bethojunior.fabrica704.com.br/files/small/";
             let src = "";
             let image = myPost[i].src;
             if(image === null){
@@ -91,7 +93,7 @@ function getPosts(){
         let dados = JSON.parse(result);
         let txt = '';
         for(let i in dados){
-            var pathImg = "http://betho3.000webhostapp.com/files/small/";
+            var pathImg = "http://bethojunior.fabrica704.com.br/files/small/";
             let src = "";
             let image = dados[i].src;
             if(image === null){
@@ -132,7 +134,7 @@ function getBestPostsForUser(){
             if(img === null ){
                 path = "";
             } else {
-                path = "http://betho3.000webhostapp.com/files/small/"+img;
+                path = "http://bethojunior.fabrica704.com.br/files/small/"+img;
             }
 
             let idPost = best[i].id;
@@ -172,7 +174,7 @@ function getAllUsers(){
             if(img === ""){
                 path = "../img/users/default.png";
             } else {
-                path = "http://betho3.000webhostapp.com/profile/small/"+img ;
+                path = "http://bethojunior.fabrica704.com.br/files/small/"+img ;
             }
             let status = users[i].status;
             let line = "";

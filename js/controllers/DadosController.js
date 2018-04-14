@@ -1,3 +1,4 @@
+const PRODUCTION = "http://bethojunior.fabrica704.com.br/mvc/";
 var dados = JSON.parse(localStorage.getItem("result"));
 //DADOS DO USUÁRIO SELECIONADO
 var dadosChat = localStorage.getItem("idUserChat");
@@ -6,7 +7,7 @@ class DadosController{
 
     getMyPosts(idUser , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/getMyPosts.php",
+            url: PRODUCTION+"controller/getMyPosts.php",
             method:"POST",
             data:{"idUser" : idUser},
             success: function(result){
@@ -19,7 +20,7 @@ class DadosController{
 
     updateSobre(id , sobre){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/updateSobre.php",
+            url: PRODUCTION+"dao/updateSobre.php",
             method: "POST",
             data: {"id" : id , "sobre" : sobre},
             success: function(result){
@@ -27,7 +28,7 @@ class DadosController{
                     let login = dados.login;
                     let pass = dados.pass;
                     $.ajax({
-                        url: "http://betho3.000webhostapp.com/mvc/controller/login.php",
+                        url: PRODUCTION+"controller/login.php",
                         method: "GET",
                         data: {"login" : login , "pass" : pass},
                         success: function(result){
@@ -58,7 +59,7 @@ class DadosController{
     sendDataPost(login , post){
         let idUser = dados.id;
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/inserirPost.php",
+            url: PRODUCTION+"dao/inserirPost.php",
             method: "POST",
             data: {"login" : login , "post" : post , "idUser" : idUser},
             success: function(result){
@@ -75,7 +76,7 @@ class DadosController{
 
     getAllPosts(callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/getAllPosts.php",
+            url: PRODUCTION+"controller/getAllPosts.php",
             method: "POST",
             success: function(result){
                 callback(result);
@@ -88,14 +89,14 @@ class DadosController{
     getDataPost(id){
         var idVoucher = id;
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/controller/getAllPosts.php",
+            url:PRODUCTION+"controller/getAllPosts.php",
             method: "POST",
             success: function(result){
                 let dados = JSON.parse(result);
                 var postSelect = "";
                 for(let i in dados){
                     let src = "";
-                    let path = "http://betho3.000webhostapp.com/files/small/";
+                    let path = "http://bethojunior.fabrica704.com.br/files/small/";
                     let image = dados[i].src;
                     if(image === null){
                         src = "";
@@ -127,7 +128,7 @@ class DadosController{
 
     deleteDataPost(id , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/deletePost.php",
+            url: PRODUCTION+"dao/deletePost.php",
             method: "POST",
             data: {"id" : id},
             success: function(result){
@@ -140,7 +141,7 @@ class DadosController{
     postSave(idPost){
         let idUser = dados.id;
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/insertBestPosts.php",
+            url: PRODUCTION+"dao/insertBestPosts.php",
             method: "POST",
             data:{"idPost" : idPost , "idUser" : idUser},
             success: function(result){
@@ -155,7 +156,7 @@ class DadosController{
 
     disabelSavedPost(idPost , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/deleteBestPostFromBestsPost.php",
+            url: PRODUCTION+"dao/deleteBestPostFromBestsPost.php",
             method: "GET",
             data:{"idPost" : idPost},
             success: function(data){
@@ -168,7 +169,7 @@ class DadosController{
 
     getBestPost(idUser , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/getBestPost.php",
+            url: PRODUCTION+"controller/getBestPost.php",
             method: "POST",
             data: {"idUser" : idUser},
             success: function(result){
@@ -183,7 +184,7 @@ class DadosController{
         let idPost = localStorage.getItem("idPost");
         let idUser = dados.id;
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/controller/checkPost.php",
+            url: PRODUCTION+"controller/checkPost.php",
             method: "POST",
             data:{"idPost" : idPost , "idUser" : idUser},
             success: function(result){
@@ -197,7 +198,7 @@ class DadosController{
     insertStatusUser(idUser){
         let status = "online";
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/dao/insertStatusUser.php",
+            url:PRODUCTION+"dao/insertStatusUser.php",
             method: "POST",
             data:{"idUser" : idUser , "status" : status},
             success: function(result){
@@ -212,7 +213,7 @@ class DadosController{
     changeStatusUser(idUser , callback){
         let status = "ausente";
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/dao/updateStatusUser.php",
+            url:PRODUCTION+"dao/updateStatusUser.php",
             method: "POST",
             data:{"idUser" : idUser , "status" : status},
             success: function(result){
@@ -226,7 +227,7 @@ class DadosController{
     sendPostFile(formData , callback){
         
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/uploadFile.php",
+            url: PRODUCTION+"dao/uploadFile.php",
             type: 'POST',
             data: formData,
             success: function (data) {
@@ -253,7 +254,7 @@ class DadosController{
 
     sendPostFileChat(formData , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/uploadFileChat.php",
+            url: PRODUCTION+"dao/uploadFileChat.php",
             type: 'POST',
             data: formData, 
             success: function (data) {
@@ -278,7 +279,7 @@ class DadosController{
 
     sendPostFileChatPhoto(formData2 , callback){
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/uploadPhotoChat.php",
+            url: PRODUCTION+"dao/uploadPhotoChat.php",
             type: 'POST',
             data: formData2, 
             success: function (data) {
@@ -305,7 +306,7 @@ class DadosController{
     statusOffline(idUser , callback){
         let status = "offline";
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/dao/updateStatusUser.php",
+            url:PRODUCTION+"dao/updateStatusUser.php",
             method: "POST",
             data:{"idUser" : idUser , "status" : status},
             success: function(result){
@@ -319,7 +320,7 @@ class DadosController{
     sendImageUser(form , callback){
 
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/updatePhotoUser.php",
+            url: PRODUCTION+"dao/updatePhotoUser.php",
             type: 'POST',
             data: form,
             success: function (data) {
@@ -346,7 +347,7 @@ class DadosController{
     sendMessage(idUser1 , idUser2 , mensagem , callback) {
         let src = "";
         $.ajax({
-            url: "http://betho3.000webhostapp.com/mvc/dao/insertMessageChat.php",
+            url: PRODUCTION+"dao/insertMessageChat.php",
             method:"POST",
             data:{"idUser1" : idUser1 , "idUser2" : idUser2 , "mensagem" : mensagem},
             success: function(data){
@@ -363,7 +364,7 @@ class DadosController{
         let idUser1 = dados.id;
         let idUser2 = dadosChat;
         $.ajax({
-            url:"http://betho3.000webhostapp.com/mvc/controller/getAllMessagesChat.php",
+            url:PRODUCTION+"getAllMessagesChat.php",
             method: "POST",
             data:{"idUser1" : idUser1 , "idUser2" : idUser2},
             success: function(result){
